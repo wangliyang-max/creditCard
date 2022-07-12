@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>个人信息变更确认</title>
+<!-- Bootstrap -->
+<link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+<style>
+    select{
+        /* background: transparent;
+        border: 0px; */
+        outline: none;
+        -webkit-appearance: none;
+    }
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"><a class="navbar-brand" href="#">信用卡网站</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse" >
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"> <a class="nav-link" href="#">手续 <span class="sr-only"></span></a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#">咨询</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#">山田先生</a> </li>
+        </ul>
+    </div>
+</nav>
+<hr>
+<div class="alert-danger text-center">
+    <P class="card-text">个人信息变更确认</p>
+</div>
+
+<div class="container">
+    <!-- <form action="change.person" method="post"> -->
+    <form action="change.person" method="post">
+    <input th:value="${APP.CSTID}" name="CSTID" style="display:none"></input>
+    <input th:value="${REQID}" name="REQID" style="display:none"></input>
+    <input th:value="${ADMINID}" id="ADMINID" name="ADMINID" style="display:none"></input>
+
+        <div class="row text-center"> </div>
+        <hr>
+        <div class="row card-header">注册信息</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">手机</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-4 bg-lemonchiffon">
+                    <input class="form-control" th:value="${APP.PHO}" name="PHO" readonly="readonly">
+                </div>
+                <div class="col-6 bg-lemonchiffon"></div>
+            </div>
+        </div>
+        <hr>
+        <div class="row card-header">ご本人について</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">您的姓名</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-1 bg-lemonchiffon">
+                    <p>姓<br>
+                        <br>
+                        <br>
+                        名</p>
+                </div>
+                <div class="col-3 bg-lemonchiffon">
+                    <input class="form-control" th:value="${APP.SEIKJ}" name="SEIKJ" readonly="readonly">
+                    <hr>
+                    <input class="form-control" th:value="${APP.MEIKJ}" name="MEIKJ" readonly="readonly">
+                </div>
+                <div class="col-6 bg-lemonchiffon"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">お名前<br>
+                            フリガナ</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-1 bg-lemonchiffon">
+                    <p>姓<br>
+                        <br>
+                        <br>
+                        名</p>
+                </div>
+                <div class="col-3 bg-lemonchiffon">
+                    <input class="form-control" th:value="${APP.SEIKN}" name="SEIKN" readonly="readonly">
+                    <hr>
+                    <input class="form-control" th:value="${APP.MEIKN}" name="MEIKN" readonly="readonly">
+                </div>
+                <div class="col-6 bg-lemonchiffon"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">ローマ字名</li>
+                        <li class="list-inline-item"></li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-1 bg-lemonchiffon">
+                    <p>姓<br>
+                        <br>
+                        <br>
+                        名</p>
+                </div>
+                <div class="col-3 bg-lemonchiffon">
+                    <input class="form-control" th:value="${APP.SEIEN}" name="SEIEN" readonly="readonly">
+                    <hr>
+                    <input class="form-control" th:value="${APP.MEIEN}" name="MEIEN" readonly="readonly">
+                </div>
+                <div class="col-6 bg-lemonchiffon"> </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row card-header">住所情報登録</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">住居種別</li>
+                    </ul>
+                    </P>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <select readonly="readonly" class="form-control" name="JKYSBT" id="">
+                            <option th:selected="${APP.JKYSBT} eq 'A'" value="A">本人持家</option>
+                            <option th:selected="${APP.JKYSBT} eq 'B'" value="B">家族持家</option>
+                            <option th:selected="${APP.JKYSBT} eq 'C'" value="C">借家・賃貸マンション</option>
+                            <option th:selected="${APP.JKYSBT} eq 'D'" value="D">その他</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-6"> </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">電話番号</li>
+                    </ul>
+                    </P>
+                </div>
+                <div class="col-4 bg-lemonchiffon">
+                    <input class="form-control" th:value="${APP.TEL}" name="TEL" readonly="readonly">
+                </div>
+                <div class="col-6 bg-lemonchiffon"> </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">郵便番号</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-4 bg-lemonchiffon">
+                    <input class="form-control" th:value="${APP.POST}"name="POST" readonly="readonly">
+                </div>
+                <div class="col-6 bg-lemonchiffon"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">都・道・府・県</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-4 bg-lemonchiffon">
+                    <div class="form-group">
+                        <input class="form-control" th:value="${APP.JSKJ1}" name="JSKJ1" readonly="readonly">
+                    </div>
+                </div>
+                <div class="col-6 bg-lemonchiffon"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">住所</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-2 bg-lemonchiffon">
+                    <label>市・区・町・村</label>
+                    <hr>
+                    <label>建物・部屋番号</label>
+                </div>
+                <div class="col-8 bg-lemonchiffon">
+                    <input class="form-control" th:value="${APP.JSKJ1}" name="JSKJ1" readonly="readonly">
+                    <hr>
+                    <input class="form-control" th:value="${APP.JSKJ2}" name="JSKJ2" readonly="readonly">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">住所フリガナ</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-2 bg-lemonchiffon">
+                    <label>市・区・町・村</label>
+                    <hr>
+                    <label>建物・部屋番号</label>
+                </div>
+                <div class="col-8 bg-lemonchiffon">
+                    <input class="form-control" th:value="${APP.JSKN1}" name="JSKN1" readonly="readonly">
+                    <hr>
+                    <input class="form-control" th:value="${APP.JSKN2}" name="JSKN2" readonly="readonly">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row card-header">個人情報登録</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-3 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">運転免許証</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-5">
+                    <input class="form-control" th:value="${APP.DRIVERID}" name="DRIVERID" readonly="readonly">
+                </div>
+                <div class="col-4"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">健康保険証番号</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-5">
+                    <input class="form-control" th:value="${APP.KKHCD}" name="KKHCD" readonly="readonly">
+                </div>
+                <div class="col-4"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">配偶者有無</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-5">
+                    <select readonly="readonly" class="form-control" name="HGSUMK" id="">
+                            <option th:selected="${APP.HGSUMK} eq 'Y'" value="Y">有</option>
+                            <option th:selected="${APP.HGSUMK} eq 'N'" value="N">无</option>
+                    </select>
+                    <!-- <input class="form-control" th:value="${APP.HGSUMK}eq 'Y'?'有':'无'" name="HGSUMK" readonly="readonly"> -->
+                </div>
+                <div class="col-4"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">家族カード案内メール希望</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-5">
+                    <select readonly="readonly" class="form-control" name="KZKMLFLG" id="">
+                            <option th:selected="${APP.KZKMLFLG} eq 'Y'" value="Y">有</option>
+                            <option th:selected="${APP.KZKMLFLG} eq 'N'" value="N">无</option>
+                    </select>
+                    <!-- <input class="form-control" th:value="${APP.KZKMLFLG}eq 'Y'?'有':'无'" name="KZKMLFLG" readonly="readonly"> -->
+                </div>
+                <div class="col-4"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">キャンペーンメール希望</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-5">
+                    <select readonly="readonly" class="form-control" name="CAMMLFLG" id="">
+                            <option th:selected="${APP.CAMMLFLG} eq 'Y'" value="Y">有</option>
+                            <option th:selected="${APP.CAMMLFLG} eq 'N'" value="N">无</option>
+                    </select>
+                    <!-- <input class="form-control" th:value="${APP.CAMMLFLG}eq 'Y'?'有':'无'" name="CAMMLFLG" readonly="readonly"> -->
+                </div>
+                <div class="col-4"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">金融口座確認方法</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-9">
+                    <select readonly="readonly" class="form-control" name="HNNHHUCD" id="">
+                            <option th:selected="${APP.HNNHHUCD} eq 'A'" value="A">无需注册</option>
+                            <option th:selected="${APP.HNNHHUCD} eq 'B'" value="B">申请后</option>
+                    </select>
+                    <!-- <input class="form-control" th:value="${APP.HNNHHUCD}" name="HNNHHUCD" readonly="readonly"> -->
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">本人確認書類確認方法</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-9">
+                    
+                    <select readonly="readonly" class="form-control" name="HNNFLG" id="">
+                            <option th:selected="${APP.HNNFLG} eq 'A'" value="A">无需注册</option>
+                            <option th:selected="${APP.HNNFLG} eq 'B'" value="B">申请后</option>
+                            <option th:selected="${APP.HNNFLG} eq 'C'" value="C">邮寄注册</option>
+                    </select>
+                     <!-- <input class="form-control" th:value="${APP.HNNFLG}" name="HNNFLG" readonly="readonly"> -->
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">家族確認書類確認方法</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-9">
+                    <select readonly="readonly" class="form-control" name="KZKFLG" id="">
+                            <option th:selected="${APP.KZKFLG} eq 'A'" value="A">无需注册</option>
+                            <option th:selected="${APP.KZKFLG} eq 'B'" value="B">申请后</option>
+                            <option th:selected="${APP.KZKFLG} eq 'C'" value="C">邮寄注册</option>
+                    </select>
+                    <!-- <input class="form-control" th:value="${APP.KZKFLG}" name="KZKFLG" readonly="readonly"> -->
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row card-header">勤務先について</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">業種</li>
+                    </ul>
+                    </P>
+                </div>
+                <div class="col-4 bg-lemonchiffon">
+                    <input class="form-control" th:value="${APP.GYOCD}" name="GYOCD" readonly="readonly">
+                </div>
+                <div class="col-6 bg-lemonchiffon"> </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">勤務先名</li>
+                    </ul>
+                    </P>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" th:value="${APP.KMS}" name="KMS" readonly="readonly">
+                </div>
+                <div class="col-6"> </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">勤務先部課名</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" th:value="${APP.KMSDEP}" name="KMSDEP" readonly="readonly">
+                </div>
+                <div class="col-6"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">勤務先電話</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" th:value="${APP.KMSTEL}" name="KMSTEL" readonly="readonly">
+                </div>
+                <div class="col-6"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">勤務先住所</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" th:value="${APP.KMSJS1}" name="KMSJS1" readonly="readonly">
+                    <hr>
+                    <input class="form-control" th:value="${APP.KMSJS2}" name="KMSJS2" readonly="readonly">
+                </div>
+                <div class="col-6"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">入社年月</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-2">
+                    <input class="form-control" th:value="${APP.NSHYM}" name="NSHYM" readonly="readonly">
+                </div>
+                <div class="col-8"> </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">年収額</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-3">
+                    <ul class="list-inline">
+                        <input class="form-control" th:value="${APP.NSG}" name="NSG" readonly="readonly">
+                        </li>
+                        <li class="list-inline-item">万円</li>
+                    </ul>
+                </div>
+                <div class="col-7"> </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row card-header">ご家族について</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">家族お名前</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-1 bg-lemonchiffon">
+                    <label>姓</label>
+                    <hr>
+                    <label>名</label>
+                </div>
+                <div class="col-9 bg-lemonchiffon">
+                    <input class="form-control" th:value="${APP.KZKSEIKJ}" name="KZKSEIKJ" readonly="readonly">
+                    <hr>
+                    <input class="form-control" th:value="${APP.KZKMEIKJ}" name="KZKMEIKJ" readonly="readonly">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">家族お名前<br>
+                            フリガナ</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-1 bg-lemonchiffon">
+                    <label>姓</label>
+                    <hr>
+                    <label>名</label>
+                </div>
+                <div class="col-3 bg-lemonchiffon">
+                    <input class="form-control" th:value="${APP.KZKSEIKN}" name="KZKSEIKN" readonly="readonly">
+                     <hr>
+                    <input class="form-control" th:value="${APP.KZKMEIKN}" name="KZKMEIKN" readonly="readonly">
+                    <hr>
+                </div>
+                <div class="col-6 bg-lemonchiffon"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">ローマ字名</li>
+                        <li class="list-inline-item"></li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-1">
+                    <label>姓</label>
+                    <hr>
+                    <label>名</label>
+                </div>
+                <div class="col-3">
+                    <input class="form-control" th:value="${APP.KZKSEIEN}" name="KZKSEIEN" readonly="readonly">
+                    <hr>
+                    <input class="form-control" th:value="${APP.KZKMEIEN}" name="KZKMEIEN" readonly="readonly">
+                </div>
+                <div class="col-6"> </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">性別</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-4 bg-lemonchiffon">
+                    <select readonly="readonly" class="form-control" name="KZKSEX" id="">
+                            <option th:selected="${APP.KZKSEX} eq 'F'" value="F">男性</option>
+                            <option th:selected="${APP.KZKSEX} eq 'M'" value="M">女性</option>
+                    </select>
+                    <!-- <input class="form-control" th:value="${APP.KZKSEX}" name="KZKSEX" readonly="readonly"> -->
+                </div>
+                <div class="col-6 bg-lemonchiffon"></div>
+            </div>
+        </div>
+        <hr>
+        <div class="row card-header">家族勤務先について</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">業種</li>
+                    </ul>
+                    </P>
+                </div>
+                <div class="col-4 bg-lemonchiffon">
+                    <div class="form-group">
+                        <input class="form-control" th:value="${APP.KZKGYOCD}" name="KZKGYOCD" readonly="readonly">
+                    </div>
+                </div>
+                <div class="col-6 bg-lemonchiffon"> </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">勤務先名</li>
+                    </ul>
+                    </P>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" th:value="${APP.KZKKMS}" name="KZKKMS" readonly="readonly">
+                </div>
+                <div class="col-6"> </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">勤務先部課名</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" th:value="${APP.KZKKMSDEP}" name="KZKKMSDEP" readonly="readonly">
+                </div>
+                <div class="col-6"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2 bg-aqua">
+                    <p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item">勤務先電話</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" th:value="${APP.KZKKMSTEL}" 
+                    name="KZKKMSTEL" readonly="readonly">
+                </div>
+                <div class="col-6"></div>
+            </div>
+        </div>
+        <div class="text-center">
+            <div class="custom-control custom-radio custom-control-inline">
+                <p class="lead"> 
+                    <a id="BackMemberIndex" class="btn btn-danger btn-lg" th:href="@{MemberIndex?ID={CSTID}(CSTID=${APP.CSTID})}" role="button">返回</a> 
+                </p>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <p class="lead"> 
+                    <button id="confirmChange" type="submit" class="btn btn-danger btn-lg">确认修改</button>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="text-center col-lg-6 offset-lg-3">
+                <p>Copyright &copy; H &middot; All Rights Reserved &middot;</p>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery-3.2.1.min.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/popper.min.js"></script> 
+<script src="js/bootstrap-4.0.0.js"></script>
+<script type='text/javascript'>
+
+    // var btn = document.getElementById("btn")
+    // console.log(btn)
+    // btn.onclick=function (){
+    //    alert("提交成功！")
+    // }
+
+    // BackMemberIndex
+      var ADMINID = document.getElementById("ADMINID")  
+      var BackMemberIndex = document.getElementById("BackMemberIndex")
+      BackMemberIndex.onclick = function (){
+        // alert(ADMINID.value == false)
+         if(ADMINID.value != false){
+            BackMemberIndex.href="MemberIndex?ID=11111111111111"
+         }
+      }
+
+    //   REQID
+    var REQID = document.getElementsByName("REQID")[0]
+    var confirmChange = document.getElementById("confirmChange")
+       if(REQID.value != false){
+        confirmChange.style.display = "none"
+       }
+    
+    //    ADMINID
+    var ADMINID = document.getElementsByName("ADMINID")[0]
+    var confirmChange = document.getElementById("confirmChange")
+    confirmChange.onclick =function(){
+        if(ADMINID.value == false){
+            ADMINID.parentElement.action="change.person.req"
+        }
+    }
+
+</script>
+</body>
+</html>

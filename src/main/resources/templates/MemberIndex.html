@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="css/bootstrap-4.0.0.css" rel="stylesheet" />
+    <style>
+      .container {
+        padding: 30px;
+      }
+      form {
+        margin: 20px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container text-center">
+      <h3>请选择你要进行的操作</h3>
+      <!--  -->
+      <form action="APPInfo.change.post">
+        <input th:value="${CSTID}" name="CSTID" style="display:none"></input>
+        <input th:value="${ADMINID}" name="ADMINID" style="display:none"></input>
+        <button id="APPInfoChangePost" type="submit" class="btn btn-primary btn-lg">
+          个人信息变更申请
+        </button>
+      </form>
+      <form action="search.post">
+        <input th:value="${CSTID}" name="CSTID" style="display:none"></input>
+        <input th:value="${ADMINID}" name="ADMINID" style="display:none"></input>
+        <button id="SearchPost" type="submit" class="btn btn-primary btn-lg">
+          个人信息查询
+        </button>
+      </form>
+      <form action="card.change.post">
+        <input th:value="${CSTID}" name="CSTID" style="display:none"></input>
+        <input th:value="${ADMINID}" name="ADMINID" style="display:none"></input>
+        <button id="cardChange" type="submit" class="btn btn-primary btn-lg">
+          信用卡转换申请
+        </button>
+      </form>
+      <form action="card.degree.add.post">
+        <input th:value="${CSTID}" name="CSTID" style="display:none"></input>
+        <input th:value="${ADMINID}" name="ADMINID" style="display:none"></input>
+        <button id="degreeAdd" type="submit" class="btn btn-primary btn-lg">
+          信用卡额度增加
+        </button>
+      </form>
+      <form action="card.delete.post">
+        <input th:value="${CSTID}" name="CSTID" style="display:none"></input>
+        <input th:value="${ADMINID}" name="ADMINID" style="display:none"></input>
+        <button id="delete" type="submit" class="btn btn-primary btn-lg">信用卡解约</button>
+      </form>
+
+      <form action="user.req.list">
+        <input th:value="${CSTID}" name="CSTID" style="display:none"></input>
+        <input th:value="${ADMINID}" name="ADMINID" style="display:none"></input>
+        <button id="list" type="submit" class="btn btn-primary btn-lg">会员申请情况查询</button>
+      </form>
+      
+      <form action="index">
+        <input th:value="${CSTID}" name="CSTID" style="display:none"></input>
+        <input th:value="${ADMINID}" name="ADMINID" style="display:none"></input>
+        <button id="BackIndex" type="submit" class="btn btn-primary btn-lg">返回</button>
+      </form>
+    </div>
+  </body>
+  <script type='text/javascript'>
+    //change 
+    var CSTIDChange = document.getElementsByName("CSTID")[0];
+      var APPInfoChangePost = document.getElementById("APPInfoChangePost")
+      APPInfoChangePost.onclick = function (){
+        // 11111111111111代表管理员
+         if(CSTIDChange.value != false){
+            APPInfoChangePost.parentElement.action="APPInfo.change.search.application"
+         }
+      }
+
+    // search
+      var CSTIDSearch = document.getElementsByName("CSTID")[1];
+      var SearchPost = document.getElementById("SearchPost")
+      SearchPost.onclick = function (){
+        // alert(CSTIDSearch.value)
+        // js比比较的时候会自动将0转换为false
+         if(CSTIDSearch.value != false){
+            SearchPost.parentElement.action="search.person"
+         }
+      }
+
+      // cardChange
+      var CSTIDCardChange = document.getElementsByName("CSTID")[2];
+      var cardChange = document.getElementById("cardChange")
+      cardChange.onclick = function (){
+         if(CSTIDCardChange.value != false){
+            cardChange.parentElement.action="card.change.search.application"
+         }
+      }
+
+      // degreeAdd
+      var CSTIDDegreeAdd = document.getElementsByName("CSTID")[3];
+      var degreeAdd = document.getElementById("degreeAdd")
+      degreeAdd.onclick = function (){
+         if(CSTIDDegreeAdd.value != false){
+            degreeAdd.parentElement.action="card.degree.add.application"
+         }
+      }
+
+      // delete
+      var CSTIDDelete = document.getElementsByName("CSTID")[4];
+      var deleteID = document.getElementById("delete")
+      deleteID.onclick = function (){
+         if(CSTIDDelete.value != false){
+            deleteID.parentElement.action="card.delete.application"
+         }
+      }
+
+      // list
+      var reqList = document.getElementsByName("CSTID")[5];
+      var list = document.getElementById("list")
+      list.onclick = function (){
+         if(reqList.value != false){
+            list.parentElement.action="user.req.list"
+            list.innerHTML = "会员申请情况查询"
+         }else{
+            list.parentElement.action="admin.res.list"
+            list.innerHTML = "会员申请情况管理"
+         }
+      }
+
+      // back
+      var CSTIDBack = document.getElementsByName("CSTID")[6];
+      var BackIndex = document.getElementById("BackIndex")
+      BackIndex.onclick = function (){
+         if(CSTIDBack.value != false){
+            BackIndex.parentElement.action="user.index"
+         }else{
+            BackIndex.parentElement.action="admin.index"
+         }
+      }
+
+  </script>
+</html>

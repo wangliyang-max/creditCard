@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.dao.CardInfoDao">
+	<select id="selectCardInfo"  resultType="com.example.po.CRD" parameterType="java.lang.String">
+		select * from CRD where CSTID=#{CSTID}
+	</select>
+	
+	
+<!--	<select id="selectDeptByDeptid" parameterType="java.lang.String" resultType="com.example.po.MyDept" >
+		select * from departments where department_id = #{id}
+	</select>
+	
+	<insert id="insertDept" parameterType="com.example.po.MyDept" >
+	    insert into departments values(#{department_id},#{department_name},#{manager_id},#{location_id})
+	</insert>	-->
+
+</mapper>

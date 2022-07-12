@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="css/bootstrap-4.0.0.css" rel="stylesheet" />
+    <style>
+      .container {
+        height: 600px;
+        display: flex;
+        align-items: center;
+        /* 水平居中 */
+        justify-content: center;
+        flex-wrap: wrap;
+        color: brown;
+      }
+      h2 {
+        width: 100%;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input th:value="${ADMINID}" id="ADMINID" name="ADMINID" style="display:none"></input>
+      <h2 th:text="${msg}">hello</h2>
+      <a id="BackMemberIndex" class="btn btn-primary btn-lg" th:href="@{MemberIndex?ID={CSTID}(CSTID=${APP.CSTID})}" role="button"
+        >返回</a>
+    </div>
+
+    <script type="text/javascript">
+      // BackMemberIndex
+      var ADMINID = document.getElementById("ADMINID");
+      var BackMemberIndex = document.getElementById("BackMemberIndex");
+      BackMemberIndex.onclick = function () {
+        // alert(ADMINID.value == false)
+        if (ADMINID.value != false) {
+          BackMemberIndex.href = "MemberIndex?ID=11111111111111";
+        }
+      };
+    </script>
+  </body>
+</html>

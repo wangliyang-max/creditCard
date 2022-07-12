@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+<body>
+
+	
+ <br>
+<!--	<h4 th:text="${crd.CRDCD}"></h4>
+	<h4 th:text="${crd.CRDYKK}"></h4>
+	<h4 th:text="${crd.SPGTORKBN}"></h4>-->
+	
+ <hr>
+ 	<!--<h4 th:text="${bkuri.SEQ}></h4>-->
+ 	<!--<th>deptname</th><th>managerid</th><th>locationid</th>-->
+	<table border="" cellspacing="" cellpadding="" width="600px">
+      <tr><th>SKYYM</th><th>TSK</th><th>SEQ</th></tr>
+      <tr th:each="bkuri:${bkuriList}">
+        <td th:text="${bkuri.SKYYM}"></td>
+        <td th:text="${bkuri.TSK}"></td>
+        <td th:text="${bkuri.SEQ}"></td>
+        
+        
+		</tr>
+  	</table>
+
+<!--  <table border="" cellspacing="" cellpadding="" width="600px">
+      <tr><th>deptid</th><th>deptname</th><th>managerid</th><th>locationid</th></tr>
+      <tr th:each="dept:${deptlist}">
+        <td th:text="${dept.department_id}"></td>
+        <td th:text="${dept.department_name}"></td>
+        <td th:text="${dept.manager_id}"></td>
+        <td th:text="${dept.location_id}"></td>
+		</tr>
+  </table>	 -->
+  <hr>
+  <!--<h4 th:text="${dept.department_name}"></h4>-->
+</body>
+</html>

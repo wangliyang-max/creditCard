@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+<body>
+
+ <br>
+ <h4 th:text="${cus.CSTID}" th:each="cus:${cuslist}"></h4> 
+ <hr>
+
+ <table border="" cellspacing="" cellpadding="" width="60px">
+      <tr>
+      <th>CSTID</th><th>SEI;//姓汉字</th><th>MEI;//名汉字</th><th>BTH;//出生年月</th><th>PHONE;//手机号码</th><th>INSERTDTE;//注册日期</th>
+      <tr th:each="cus:${cuslist}">
+      
+        <td th:text="${cus.CSTID}"></td>
+        <td th:text="${cus.HNNKZK}"></td>
+        <td th:text="${cus.SEI}"></td>
+        <td th:text="${cus.SEIKANA}"></td>
+        <td th:text="${cus.SEIEN}"></td>
+        <td th:text="${cus.MEI}"></td>
+        <td th:text="${cus.MEIKANAK}"></td>
+        <td th:text="${cus.MEIEN}"></td>
+        
+        <td th:text="${cus.BTH}"></td>
+        <td th:text="${cus.SEX}"></td>
+        <td th:text="${cus.KJNHJN}"></td>
+        <td th:text="${cus.TEL}"></td>
+        
+        <td th:text="${cus.PHONE}"></td>
+        <td th:text="${cus.JKYSBT}"></td>
+        <td th:text="${cus.POST}"></td>
+        <td th:text="${cus.KNC}"></td>
+        
+        <td th:text="${cus.JSKJ1}"></td>
+        <td th:text="${cus.JSKJ2}"></td>
+        <td th:text="${cus.JSKN1}"></td>
+        <td th:text="${cus.JSKN2}"></td>
+ 
+<!--;//行业编码
+;//行业名
+;//行业部门
+;//行业电话
+;//行业第一居所
+;//行业第二居所   --> 
+        <td th:text="${cus.GYOCD}"></td>
+        <td th:text="${cus.KMS}"></td>
+        <td th:text="${cus.KMSDEP}"></td>
+        <td th:text="${cus.KMSTEL}"></td>
+        <td th:text="${cus.KMSJS1}"></td>
+        <td th:text="${cus.KMSJS2}"></td>
+ <!--;//入职日期
+NSG;//年收入
+;//驾驶执照
+KKHCD;//医疗保险卡
+;//金融机构编码
+;//分公司编号
+YKN;//存款类型    -->   
+        <td th:text="${cus.NYUSYAYM}"></td>
+        <td th:text="${cus.NSG}"></td>
+        <td th:text="${cus.DRIVERID}"></td>
+        <td th:text="${cus.KKHCD}"></td>
+        <td th:text="${cus.BANKCD}"></td>
+        <td th:text="${cus.BCHCD}"></td>
+        <td th:text="${cus.YKN}"></td>
+
+<!--;//账号
+;//帐户户主
+;//是否希望收到家庭卡信息电子邮件
+;//是否愿意接收竞选邮件
+;//ETC编码  -->   
+        <td th:text="${cus.ACTCD}"></td>
+        <td th:text="${cus.ACTNAE}"></td>
+        <td th:text="${cus.KZKMLFLG}"></td>
+        <td th:text="${cus.CAMMLFLG}"></td>
+        <td th:text="${cus.ETCFLG}"></td>
+        
+        
+<!--;//注册日期
+;//注册用户ID
+;//更新日期
+;//更新后的用户ID
+;//删除标志
+;//理论上的删除日期    -->     
+        <td th:text="${cus.INSERTDTE}"></td>
+        <td th:text="${cus.INSERTID}"></td>
+        <td th:text="${cus.UPDATEDTE}"></td>
+        <td th:text="${cus.UPDATEID}"></td>
+        <td th:text="${cus.DELETEFLG}"></td>
+        <td th:text="${cus.DELETEDTE}"></td>
+        
+       
+	</tr>
+  </table>
+  <hr>
+</body>
+</html>

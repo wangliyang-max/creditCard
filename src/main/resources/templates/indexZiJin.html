@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/comm.css" />
+
+</head>
+<body>
+	</form>-->
+	查询卡信息：
+	<br/>
+	<form action="selectCard.action" method="post">
+		personal_card_number:<input type="text" name="CSTID" id="" value="" /> 
+		<input type="submit" value="查找" />
+	</form>
+	查询12个月之内的BKURI：<br/>
+	<form action="selectByYear.action" method="post">
+		personal_card_number:<input type="text" name="CSTID" id="" value="" />
+		<input type="submit" value="查找">
+	</form>
+	
+	查询起止日期之间的BKURI：<br/>
+	<form action="selectByTime.action" method="post">
+		start_time:<input type="text" name="STIME" id="" value="" />
+		end_time:<input type="text" name="ETIME" id="" value="" />
+		<input type="submit" value="查找">
+	</form>
+	销售数据插入：<br/>
+	
+	<form action="insertBKURI.action" method="post">
+		销售情况:<input type="text" name="SEQ"/><br/>
+		期号:<input type="text" name="KINO"/><br/>
+		客户ID:<input type="text" name="CSTID"/><br/>
+		本人家庭:<input type="text" name="HNNKZK"/><br/>
+		分期付款额:<input type="text" name="BKUAG"/><br/>
+		手续费：<input type="text" name="TESURYO"/><br/>
+		销售额：<input type="text" name="TSK"/><br/>
+		交易日：<input type="text" name="SKYYM"/><br/>
+		付款标志：<input type="text" name="TSKFLG"/><br/>
+		注册时间：<input type="text" name="INSERTDTE"/><br/>
+		注册用户ID：<input type="text" name="INSERTID"/><br/>
+		更新时间：<input type="text" name="UPDATEDTE"/><br/>
+		更新用户ID：<input type="text" name="UPDATEID"/><br/>
+		删除标志：<input type="text" name="DELETEFLG"/><br/>
+		逻辑删除日期：<input type="text" name="DELETEDTE"/> <br/>
+		<input type="submit" value="插入">
+	</form>	
+     
+
+</body>
+</html>

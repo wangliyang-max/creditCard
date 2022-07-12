@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- com.dao.UserDao对应Dao接口 -->
+<mapper namespace="com.example.dao.AppDao">
+	<!-- 查询用户信息 -->
+	<select id="selectApp"  resultType="com.example.po.MyAPP" >
+	    select * from APP
+	</select>
+	
+	
+	<select id="selectAppByAppid" parameterType="java.lang.String" resultType="com.example.po.MyAPP" >
+		select * from APP where CSTID = #{APPID}
+	</select>
+	
+    <insert id = "insertApp" parameterType = "com.example.po.MyAPP">
+		insert into app values(
+		#{APPCD},
+		#{APPID},#{SYOKBN},#{MAIL},#{BER},
+
+		#{PHO}, 
+		to_date(#{UKTTME},'YYYY-MM-DD'),
+	
+		#{APPSTS},#{BRDCD},#{CRDSHUCD},
+		
+		#{KJNHJN},#{SEIKJ},#{SEIKN},#{SEIEN},#{MEIKJ},#{MEIKN},#{MEIEN},#{SEX}, 
+		
+		#{JKYSBT},#{TEL},#{POST},#{KNC},#{JSKJ1},#{JSKJ2},#{JSKN1},#{JSKN2}, 
+		
+		#{SPGTORKBN},#{SPGKBN},#{CSGKBN},#{TORKBN},
+		
+		#{DRIVERID},#{KKHCD},#{HGSUMK},#{KZKMLFLG},#{CAMMLFLG},#{BANKCD},#{BCHCD},#{YKN}, 
+		
+		#{ACTCD},#{ACTNAE},#{ACTKKNDTE},#{ACTKKNID},#{ACTKKNNAM},#{AGTCD},#{HNNHHUCD},#{HNNFLG},
+		
+		#{HKS1}, 
+		#{HKS2}, 
+		#{HKS3}, 
+		#{HKS4}, 
+		#{HNNKKNDTE}, 
+		#{HNNKKNID}, 
+		#{HNNKKNNAM}, 
+		
+		#{GYOCD}, #{KMS},#{KMSDEP},#{KMSTEL},#{KMSJS1},#{KMSJS2}, 
+		
+		#{NSHYM},#{NSG},#{KZKKBN},#{KZKFLG},#{KZKSEIKJ},#{KZKSEIKN}, 
+		#{KZKSEIEN}, 
+		#{KZKMEIKJ}, 
+		#{KZKMEIKN}, 
+		#{KZKMEIEN}, 
+		
+		#{KZKSEX}, 
+		#{KZKGYOCD}, 
+		#{KZKKMS}, 
+		#{KZKKMSDEP}, 
+		#{KZKKMSTEL}, 
+		#{KZKHHUCD}, 
+		#{KZKKS1}, 
+		#{KZKKS2}, 
+		#{KZKKS3}, 
+		#{KZKKS4}, 
+			
+		#{KZKKKNDTE}, 
+		#{KZKKKNID}, 
+		#{KZKKKNNAM}, 
+		#{YSNINF}, 
+		#{SKJSSKFLG}, 
+		to_date(#{SSKIRITME},'YYYY-MM-DD'),
+		
+		#{SSKCD}, 
+		to_date(#{SSKJRYTME},'YYYY-MM-DD'),
+		to_date(#{APPCNCTME},'YYYY-MM-DD'),
+		#{OLDCRDCD}, 
+			
+		to_date(#{INSERTDTE},'YYYY-MM-DD'),
+		#{INSERTID}, 
+		to_date(#{UPDATEDTE},'YYYY-MM-DD'),
+		#{UPDATEID}, 
+		#{DELETEFLG},
+		to_date(#{DELETEDTE},'YYYY-MM-DD')
+		
+      
+		)
+	</insert>
+	<update id = "updateApp" parameterType = "com.example.po.MyAPP">
+		update App set PHO = #{PHO} where CSTID = #{APPID}
+	</update>
+	<delete  id = "deleteApp" parameterType = "java.lang.String">
+		delete from App where CSTID = #{APPID}
+	</delete>
+	
+	
+	
+</mapper>

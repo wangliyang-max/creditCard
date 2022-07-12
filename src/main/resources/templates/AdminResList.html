@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="css/bootstrap-4.0.0.css" rel="stylesheet" />
+    <style>
+      .container {
+        height: 600px;
+        display: flex;
+        align-items: center;
+        /* 水平居中 */
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input th:value="${CSTID}" name="CSTID" style="display:none"></input>
+      <input th:value="${ADMINID}" id="ADMINID" name="ADMINID" style="display:none"></input>
+      <table class="table table-striped table-hover" style="text-align: center">
+        <tr>
+          <th>编号</th>
+          <th>请求类型</th>
+          <th>请求用户</th>
+          <th>请求时间</th>
+          <th>状态</th>
+          <th>处理</th>
+          <th>删除</th>
+        </tr>
+        <tr th:each="adminsRes:${adminsResList}">
+          <td>
+            <form action="change.person.confirm.page.admin">
+              <input th:value="${CSTID}" name="CSTID" style="display:none"></input>
+              <input th:value="${ADMINID}" id="ADMINID" name="ADMINID" style="display:none"></input>
+              <input th:value="${adminsRes.RESID}" name="RESID" style="display:none"></input>
+              <button th:text="${adminsRes.RESID}" class="btn btn-default" type="submit" name="type">编号</button>
+              <input th:value="${adminsRes.RESTYPE}" name="RESTYPE" style="display:none"></input>
+            </form>
+          </td>
+          <td th:text="${adminsRes.RESTYPE}"></td>
+          <td th:text="${adminsRes.RESUSERID}"></td>
+          <td class="date" th:text="${adminsRes.RESDATE}"></td>
+          <td th:text="${adminsRes.RESSTATE}"></td>
+          <td>
+            <input th:value="${adminsRes.RESSTATE}" name="RESSTATE" style="display:none"></input>
+            <form action="admin.res.confirm">
+              <input th:value="${CSTID}" name="CSTID" style="display:none"></input>
+              <input th:value="${ADMINID}" id="ADMINID" name="ADMINID" style="display:none"></input>
+              <input th:value="${adminsRes.RESID}" name="RESID" style="display:none"></input>
+              <button class="btn btn-success" name="confirm">同意</button>
+            </form>
+            <form action="admin.res.reject">
+              <input th:value="${CSTID}" name="CSTID" style="display:none"></input>
+              <input th:value="${ADMINID}" id="ADMINID" name="ADMINID" style="display:none"></input>
+              <input th:value="${adminsRes.RESID}" name="RESID" style="display:none"></input>
+              <button class="btn btn-danger" name="reject">拒绝</button>
+            </form>
+          </td>
+          <td>
+            <form action="admin.res.delete">
+              <input th:value="${CSTID}" name="CSTID" style="display:none"></input>
+              <input th:value="${ADMINID}" id="ADMINID" name="ADMINID" style="display:none"></input>
+              <input name="RESID" th:value="${adminsRes.RESID}" style="display:none ;">
+              <button class="btn btn-default" type="submit">删除记录</button>
+            </form>
+          </td>
+        </tr>
+        
+      </table>
+      <div class="text-center">
+        <div class="custom-control custom-radio custom-control-inline">
+          <p class="lead">
+            <a
+              id="BackMemberIndex"
+              style="color: white"
+              class="btn btn-primary btn-lg"
+              th:href="@{MemberIndex?ID={CSTID}(CSTID=${CSTID})}"
+              role="button"
+              >返回</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+  <script src="js/jquery-3.2.1.min.js"></script> 
+  <!-- Include all compiled plugins (below), or include individual files as needed --> 
+  <script src="js/popper.min.js"></script> 
+  <script src="js/bootstrap-4.0.0.js"></script>
+    <script type='text/javascript'>
+      // BackMemberIndex
+        var ADMINID = document.getElementById("ADMINID")  
+        var BackMemberIndex = document.getElementById("BackMemberIndex");
+        BackMemberIndex.onclick = function (){
+          // alert(ADMINID.value == false)
+          if(ADMINID.value != false){
+              BackMemberIndex.href="MemberIndex?ID=11111111111111"
+          }
+        }
+
+
+         // 更改时间格式
+        function p(s) {
+          return s < 10 ? '0' + s : s
+        }
+        function formatTime (d) {
+            const resDate = d.getFullYear() + '-' + p((d.getMonth() + 1)) + '-' + p(d.getDate())
+            const resTime = p(d.getHours()) + ':' + p(d.getMinutes()) + ':' + p(d.getSeconds())
+
+            return resDate+" "+resTime
+        }
+
+        // var timer =setTimeout(function(){
+        var datesObj = document.getElementsByClassName("date")
+        var dates=[]
+        var n = datesObj.length
+        // alert(n)
+        var i
+        for(i=0;i<n;i++){
+            dates[i] = datesObj[i].textContent
+            var d = new Date(dates[i]); 
+            d = formatTime(d)
+            console.log(d)
+            datesObj[i].innerHTML = d
+        }
+      // },3000)
+
+      // button
+      var confirm = document.getElementsByName("confirm")
+      var reject = document.getElementsByName("reject")
+      var RESSTATE = document.getElementsByName("RESSTATE")
+      for(var i =0;i<confirm.length;i++){
+        confirm[i].onclick = function (){
+          // 这里要用this
+          //  this.innerHTML="已同意"
+          //  jquery
+          $(this).parent().next().hide();
+        }
+        reject[i].onclick = function (){
+            // this.innerHTML="已拒绝"
+            $(this).parent().prev().hide();
+        }
+      }
+      for(var i =0;i<RESSTATE.length;i++){
+      if(!(RESSTATE[i].value == "正在申请")){
+        confirm[i].style.display="none"
+        reject[i].innerHTML="已处理"
+        reject[i].style.background="blue"
+        reject[i].style.border="blue"
+        reject[i].parentElement.action="#"
+      }
+      }
+
+      // 编号页面
+      var type = document.getElementsByName("type")
+      // alert(type.length)
+      for(var i =0;i<type.length;i++){
+        type[i].onclick = function (){
+          // alert($(this).next().val())
+          if($(this).next().val() == "个人信息变更申请"){
+            // alert("个人信息变更申请")
+            $(this).parent().attr('action', "change.person.confirm.page.admin")
+          }else if($(this).next().val() == "信用卡额度增加申请"){
+            // alert("信用卡额度增加申请")
+            $(this).parent().attr('action', "add.card.confirm.page.admin")
+          }else if($(this).next().val() == "信用卡转化申请"){
+            // alert("信用卡额度增加申请")
+            $(this).parent().attr('action', "change.card.confirm.page.admin")
+          }else{
+            $(this).parent().attr('action', "delete.app.confirm.page.admin")
+          }
+        }
+      }
+
+    </script>
+  </body>
+</html>

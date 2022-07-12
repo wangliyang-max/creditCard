@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- com.dao.UserDao对应Dao接口 -->
+<mapper namespace="com.example.dao.LoginDao">
+	<select id="getUserPassword" parameterType="java.lang.String" resultType="com.example.po.MyUSERS">
+		select * from USERS where CSTID = #{id}
+	</select>
+	<select id="getAdminPassword" parameterType="java.lang.String" resultType="com.example.po.MyADMINS">
+		select * from ADMINS where ADMINID = #{id}
+	</select>
+</mapper>

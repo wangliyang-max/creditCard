@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+<body>
+
+ <br>
+ <h4 th:text="${app.APPID}" th:each="app:${applist}"></h4> 
+ <hr>
+
+ <table border="" cellspacing="" cellpadding="" width="60px">
+      <tr>
+      <th>APPID</th>
+      <th>SYOKBN处理区分</th>
+      <th>MAIL 电子邮件</th>
+      <th>BER 出生年月日</th>
+      
+      <tr th:each="app:${applist}">
+ <!--SYOKBN    ;// 处理区分
+ MAIL      ;// 电子邮件
+ BER       ;// 出生年月日      -->
+        <td th:text="${app.APPID}"></td>
+        <td th:text="${app.SYOKBN}"></td>
+        <td th:text="${app.MAIL}"></td>
+        <td th:text="${app.BER}"></td>
+<!-- PHO       ;// 手机
+ UKTTME    ;// 受理日期
+ APPSTS    ;// 申请状况
+ BRDCD     ;// 品牌编号
+ CRDSHUCD  ;// 卡的类型编码-->
+        <td th:text="${app.PHO}"></td>
+        <td th:text="${app.UKTTME}"></td>
+        <td th:text="${app.APPSTS}"></td>
+        <td th:text="${app.BRDCD}"></td>
+        <td th:text="${app.CRDSHUCD}"></td>
+<!-- KJNHJN    ;// 个人法人
+ SEIKJ     ;// 姓氏汉字
+ SEIKN     ;// 姓氏加奈
+ SEIEN     ;// 姓氏罗马
+ -->
+        <td th:text="${app.KJNHJN}"></td>
+        <td th:text="${app.SEIKJ}"></td>
+        <td th:text="${app.SEIKN}"></td>
+        <td th:text="${app.SEIEN}"></td>
+ <!--MEIKJ     ;// 名称汉字
+ MEIKN     ;// 名称加奈
+ MEIEN     ;// 名称罗马
+ SEX       ;// 性别    -->   
+        <td th:text="${app.MEIKJ}"></td>
+        <td th:text="${app.MEIKN}"></td>
+        <td th:text="${app.MEIEN}"></td>
+        <td th:text="${app.SEX}"></td>
+<!--JKYSBT    ;// 居住类型
+ TEL       ;// 电话号码
+ POST      ;// 邮政编码
+ KNC       ;// 县级编号-->
+       
+        <td th:text="${app.JKYSBT}"></td>
+        <td th:text="${app.TEL}"></td>
+        <td th:text="${app.POST}"></td>
+        <td th:text="${app.KNC}"></td>
+ <!--JSKJ1     ;// 地址汉字1
+ JSKJ2     ;// 地址汉字2
+ JSKN1     ;// 地址加奈1
+ JSKN2     ;// 地址加奈2  -->
+        <td th:text="${app.JSKJ1}"></td>
+        <td th:text="${app.JSKJ2}"></td>
+        <td th:text="${app.JSKN1}"></td>
+        <td th:text="${app.JSKN2}"></td>
+ <!--SPGTORKBN ;// 购物额度分类
+ SPGKBN    ;// 购物交易目的分类
+ CSGKBN    ;// 现金预支额度分类
+ TORKBN    ;// 现金预支交易目的分类-->
+        <td th:text="${app.SPGTORKBN}"></td>
+        <td th:text="${app.SPGKBN}"></td>
+        <td th:text="${app.CSGKBN}"></td>
+        <td th:text="${app.TORKBN}"></td>
+ <!--DRIVERID  ;// 驾驶执照
+ KKHCD     ;// 医疗保险卡
+ HGSUMK    ;// 是否有配偶
+ KZKMLFLG  ;// 是否希望收到家庭卡信息电子邮件
+ CAMMLFLG  ;// 是否愿意接收竞选邮件
+ BANKCD    ;// 金融机构编码
+ BCHCD     ;// 分公司编号
+ YKN       ;// 存款类型-->
+        <td th:text="${app.DRIVERID}"></td>
+        <td th:text="${app.KKHCD}"></td>
+        <td th:text="${app.HGSUMK}"></td>
+        <td th:text="${app.KZKMLFLG}"></td>
+        <td th:text="${app.CAMMLFLG}"></td>
+        <td th:text="${app.BANKCD}"></td>
+        <td th:text="${app.BCHCD}"></td>
+        <td th:text="${app.YKN}"></td>
+ <!--ACTCD     ;// 账号
+ ACTNAE    ;// 帐户户主
+ ACTKKNDTE ;// 账户确认日期
+ ACTKKNID  ;// 帐户确认 工作人员
+ ACTKKNNAM ;// 账户确认人姓名
+ AGTCD     ;// 机构编码
+ HNNHHUCD  ;// 识别方法编码
+ HNNFLG    ;// 身份验证的标志-->
+        <td th:text="${app.ACTCD}"></td>
+        <td th:text="${app.ACTNAE}"></td>
+        <td th:text="${app.ACTKKNDTE}"></td>
+        <td th:text="${app.ACTKKNID}"></td>
+        <td th:text="${app.ACTKKNNAM}"></td>
+        <td th:text="${app.AGTCD}"></td>
+        <td th:text="${app.HNNHHUCD}"></td>
+        <td th:text="${app.HNNFLG}"></td>
+ <!--HKS1      ;// 本人确认信息1
+ HKS2      ;// 本人确认信息2
+ HKS3      ;// 本人确认信息3
+ HKS4      ;// 本人确认信息4
+ HNNKKNDTE ;// 本人确认日
+ HNNKKNID  ;// 本人确认担当者ID
+ HNNKKNNAM ;// 本人确认担当者姓名 -->
+        <td th:text="${app.HKS1}"></td>
+        <td th:text="${app.HKS2}"></td>
+        <td th:text="${app.HKS3}"></td>
+        <td th:text="${app.HKS4}"></td>
+        <td th:text="${app.HNNKKNDTE}"></td>
+        <td th:text="${app.HNNKKNID}"></td>
+        <td th:text="${app.HNNKKNNAM}"></td>
+ <!--GYOCD     ;// 行业编码
+ KMS       ;// 雇主名
+ KMSDEP    ;// 雇主部门
+ KMSTEL    ;// 雇主电话
+ KMSJS1    ;// 雇主第一居所
+ KMSJS2    ;// 雇主第二居所-->
+        <td th:text="${app.GYOCD}"></td>
+        <td th:text="${app.KMS}"></td>
+        <td th:text="${app.KMSDEP}"></td>
+        <td th:text="${app.KMSTEL}"></td>
+        <td th:text="${app.KMSJS1}"></td>
+        <td th:text="${app.KMSJS2}"></td>
+ <!--NSHYM     ;// 入职日期
+ NSG       ;// 年收入
+ KZKKBN    ;// 家属卡
+ KZKFLG    ;// 家庭确认标志-->
+ 
+        <td th:text="${app.NSHYM}"></td>
+        <td th:text="${app.NSG}"></td>
+        <td th:text="${app.KZKKBN}"></td>
+        <td th:text="${app.KZKFLG}"></td>
+ <!--KZKSEIKJ  ;// 家族姓汉字
+ KZKSEIKN  ;// 家族姓加奈
+ KZKSEIEN  ;// 家族姓罗马
+ KZKMEIKJ  ;// 家族名汉字
+ KZKMEIKN  ;// 家族名加奈
+ KZKMEIEN  ;// 家族名罗马 -->       
+        <td th:text="${app.KZKSEIKJ}"></td>
+        <td th:text="${app.KZKSEIKN}"></td>
+        <td th:text="${app.KZKSEIEN}"></td>
+        <td th:text="${app.KZKMEIKJ}"></td>
+        <td th:text="${app.KZKMEIKN}"></td>
+        <td th:text="${app.KZKMEIEN}"></td>
+ <!--KZKSEX    ;// 家族性别
+ KZKGYOCD  ;// 家庭行业编码
+ KZKKMS    ;// 家庭成员的行业姓名
+ KZKKMSDEP ;// 家庭成员的行业部门名称
+ KZKKMSTEL ;// 家庭成员的行业电话
+ KZKHHUCD  ;// 家庭识别方法编码-->
+        <td th:text="${app.KZKSEX}"></td>
+        <td th:text="${app.KZKGYOCD}"></td>
+        <td th:text="${app.KZKKMS}"></td>
+        <td th:text="${app.KZKKMSDEP}"></td>
+        <td th:text="${app.KZKKMSTEL}"></td>
+        <td th:text="${app.KZKHHUCD}"></td>
+ <!--KZKKS1    ;// 家庭确认资料1
+ KZKKS2    ;// 家庭确认资料2
+ KZKKS3    ;// 家庭确认资料3
+ KZKKS4    ;// 家庭确认资料4-->
+        <td th:text="${app.KZKKS1}"></td>
+        <td th:text="${app.KZKKS2}"></td>
+        <td th:text="${app.KZKKS3}"></td>
+        <td th:text="${app.KZKKS4}"></td>
+ <!--KZKKKNDTE ;// 家庭确认日
+ KZKKKNID  ;// 家庭确认担当人ID
+ KZKKKNNAM ;// 家庭确认担当人名字
+ YSNINF    ;// 信用信息
+ SKJSSKFLG ;// 即刻审查标志
+ SSKIRITME ;// 请求审查的日期和时间 -->      
+        <td th:text="${app.KZKKKNDTE}"></td>
+        <td th:text="${app.KZKKKNID}"></td>
+        <td th:text="${app.KZKKKNNAM}"></td>
+        <td th:text="${app.YSNINF}"></td>
+        <td th:text="${app.SKJSSKFLG}"></td>
+        <td th:text="${app.SSKIRITME}"></td>
+ <!--SSKCD     ;// 审查结果
+ SSKJRYTME ;// 审查结果受领日期
+ APPCNCTME ;// 申请取消日期和时间
+ OLDCRDCD  ;// 旧卡号-->
+        <td th:text="${app.SSKCD}"></td>
+        <td th:text="${app.SSKJRYTME}"></td>
+        <td th:text="${app.APPCNCTME}"></td>
+        <td th:text="${app.OLDCRDCD}"></td>
+ <!--INSERTDTE ;// 注册日期
+ INSERTID  ;// 注册用户ID
+ UPDATEDTE ;// 更新日期
+ UPDATEID  ;// 更新后的用户ID
+ DELETEFLG ;// 删除标志
+ DELETEDTE ;// 理论上的删除日期-->
+        <td th:text="${app.INSERTDTE}"></td>
+        <td th:text="${app.INSERTID}"></td>
+        <td th:text="${app.UPDATEDTE}"></td>
+        <td th:text="${app.UPDATEID}"></td>
+        <td th:text="${app.DELETEFLG}"></td>
+        <td th:text="${app.DELETEDTE}"></td>
+        
+       
+	</tr>
+  </table>
+  <hr>
+</body>
+</html>

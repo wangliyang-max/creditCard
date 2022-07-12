@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.dao.BKURIDao">
+	<select id="selectBKURIByYear"  resultType="com.example.po.BKURI" parameterType="java.lang.String">
+		select * from BKURI where CSTID=#{CSTID} and to_number(SKYYM) &lt;=to_number(12) and to_number(SKYYM)&gt;= to_number(0)
+	</select>
+			<!--select * from BKURI where CSTID=#{CSTID} and to_date(#{SKYYM},'yyyy-mm-dd') between add_months(sysdate,-12) and sysdate-->
+	
+	
+	
+<!--	<select id="selectDeptByDeptid" parameterType="java.lang.String" resultType="com.example.po.MyDept" >
+		select * from departments where department_id = #{id}
+	</select>
+	
+	<insert id="insertDept" parameterType="com.example.po.MyDept" >
+	    insert into departments values(#{department_id},#{department_name},#{manager_id},#{location_id})
+	</insert>	-->
+
+</mapper>

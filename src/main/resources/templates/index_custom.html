@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/comm.css" />
+
+</head>
+<body>
+	<div id="div1">div_cus</div>
+
+	<form action="select_cus.action" method="post">
+		<input type="submit" value="查找" />
+	</form>
+	
+	<br>
+	
+	<form action="select1_cus.action" method="post">
+	    CSTID: <input type="text" name="CST_ID" id="" value="" />
+		<input type="submit" value="查找id" />
+	</form>
+	
+    <hr>
+    	<!--<h4 th:text="${msg}" style="color:brown"></h4>-->
+	<hr>
+	<h5>顾客登记</h5>
+	<form action="insert_cus.action" method="post">
+	  <table width="600px">
+	  <tr><td> CSTID: </td><td><input type="text" name="CSTID" id="" value="" /></td></tr>
+	  <tr><td> HNNKZK: </td><td><input type="text" name="HNNKZK" id="" value="" /></td></tr>
+	  
+	  <tr><td> SEI;//姓汉字: </td><td><input type="text" name="SEI" id="" value="" /></td></tr>
+	  <tr><td> SEIKANA;//姓加奈: </td><td><input type="text" name="SEIKANA" id="" value="" /></td></tr>
+	  <tr><td> SEIEN;//姓罗马: </td><td><input type="text" name="SEIEN" id="" value="" /></td></tr>
+	  
+	  <tr><td>MEI;//名汉字: </td><td><input type="text" name="MEI" id="" value="" /></td></tr>
+	  <tr><td> MEIKANAK;//名加奈 : </td><td><input type="text" name="MEIKANAK" id="" value="" /></td></tr>
+	  <tr><td> MEIEN;//名罗马: </td><td><input type="text" name="MEIEN" id="" value="" /></td></tr>
+	  
+	  <tr><td> BTH:</td><td><input type="text" name="BTH" id="" value="" /></td></tr>
+	  <tr><td> SEX: </td><td><input type="text" name="SEX" id="" value="" /></td></tr>
+	  <tr><td> KJNHJN;//个人法人: </td><td><input type="text" name="KJNHJN" id="" value="" /></td></tr>
+	  <tr><td> TEL: </td><td><input type="text" name="TEL" id="" value="" /></td></tr>
+	  
+	  <tr><td> PHONE:</td><td><input type="text" name="PHONE" id="" value="" /></td></tr>
+	  <tr><td> JKYSBT;//居住类型: </td><td><input type="text" name="JKYSBT" id="" value="" /></td></tr>
+	  <tr><td> POST;//邮政编码: </td><td><input type="text" name="POST" id="" value="" /></td></tr>
+      <tr><td> KNC;//县级编号: </td><td><input type="text" name="KNC" id="" value="" /></td></tr>
+      <tr><td> JSKJ1;//住所汉字1: </td><td><input type="text" name="JSKJ1" id="" value="" /></td></tr>
+      <tr><td> JSKJ2;//住所汉字2: </td><td><input type="text" name="JSKJ2" id="" value="" /></td></tr>
+      <tr><td> JSKN1;//住所加纳1: </td><td><input type="text" name="JSKN1" id="" value="" /></td></tr>
+      <tr><td> JSKN2;//住所加纳2: </td><td><input type="text" name="JSKN2" id="" value="" /></td></tr>
+      
+      <tr><td>GYOCD;//行业编码: </td><td><input type="text" name="GYOCD" id="" value="" /></td></tr>
+      <tr><td> KMS;//行业名: </td><td><input type="text" name="KMS" id="" value="" /></td></tr>
+      <tr><td> KMSDEP;//行业部门: </td><td><input type="text" name="KMSDEP" id="" value="" /></td></tr>
+      <tr><td> KMSTEL;//行业电话: </td><td><input type="text" name="KMSTEL" id="" value="" /></td></tr>
+      <tr><td> KMSJS1;//行业第一居所: </td><td><input type="text" name="KMSJS1" id="" value="" /></td></tr>
+      <tr><td> KMSJS2;//行业第二居所: </td><td><input type="text" name="KMSJS2" id="" value="" /></td></tr>
+      
+      <tr><td> NYUSYAYM;//入职日期: </td><td><input type="text" name="NYUSYAYM" id="" value="" /></td></tr>
+      <tr><td> NSG;//年收入: </td><td><input type="text" name="NSG" id="" value="" /></td></tr>
+      <tr><td> DRIVERID;//驾驶执照: </td><td><input type="text" name="DRIVERID" id="" value="" /></td></tr>
+      <tr><td> KKHCD;//医疗保险卡: </td><td><input type="text" name="KKHCD" id="" value="" /></td></tr>
+      <tr><td> BANKCD;//金融机构编码: </td><td><input type="text" name="BANKCD" id="" value="" /></td></tr>
+      <tr><td> BCHCD;//分公司编号: </td><td><input type="text" name="BCHCD" id="" value="" /></td></tr>
+      <tr><td> YKN;//存款类型: </td><td><input type="text" name="YKN" id="" value="" /></td></tr>
+      
+      <tr><td> ACTCD;//账号: </td><td><input type="text" name="ACTCD" id="" value="" /></td></tr>
+      <tr><td> ACTNAE;//帐户户主: </td><td><input type="text" name="ACTNAE" id="" value="" /></td></tr>
+      <tr><td> KZKMLFLG;//是否希望收到家庭卡信息电子邮件: </td><td><input type="text" name="KZKMLFLG" id="" value="" /></td></tr>
+      <tr><td> CAMMLFLG;//是否愿意接收竞选邮件: </td><td><input type="text" name="CAMMLFLG" id="" value="" /></td></tr>
+      <tr><td> ETCFLG;//ETC编码: </td><td><input type="text" name="ETCFLG" id="" value="" /></td></tr>
+      
+      
+      <tr><td> INSERTDTE;//注册日期:</td><td><input type="date" name="INSERTDTE" id="" value="" /></td></tr>
+      <tr><td> INSERTID;//注册用户ID: </td><td><input type="text" name="INSERTID" id="" value="" /></td></tr>
+      <tr><td> UPDATEDTE;//更新日期: </td><td><input type="text" name="UPDATEDTE" id="" value="" /></td></tr>
+      <tr><td> UPDATEID;//更新后的用户ID: </td><td><input type="text" name="UPDATEID" id="" value="" /></td></tr>
+      <tr><td> DELETEFLG;//删除标志: </td><td><input type="text" name="DELETEFLG" id="" value="" /></td></tr>
+      <tr><td> DELETEDTE;//理论上的删除日期: </td><td><input type="text" name="DELETEDTE" id="" value="" /></td></tr>
+      
+      <tr><td> <input type="submit" value="提交" /></td><td><input type="reset" value="重置" /></td></tr>
+	  </table>
+	</form>
+	
+	<hr>
+	<h4 th:text="${msg1}" style="color:brown"></h4>
+	<hr>
+	<h5>修改信息（根据id修改顾客SEI）</h5>
+	<form action="update.action" method="post">
+	  <table width="600px">
+	  <tr><td> CSTID: </td><td><input type="text" name="CSTID" id="" value="" /></td></tr>
+	  <tr><td> SEI: </td><td><input type="text" name="SEI" id="" value="" /></td></tr>
+	  <tr><td> <input type="submit" value="提交" /></td><td><input type="reset" value="重置" /></td></tr>
+	  </table>
+	</form>
+	
+	<hr>
+	<h4 th:text="${msg2}" style="color:brown"></h4>
+	<hr>
+	<h5>根据部门id删除</h5>
+	<form action="deleteCus.action" method="post">
+	  <input type="text" name="CSTID" value="" />
+	  <input type="submit" value="提交" />  
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- com.dao.UserDao对应Dao接口 -->
+<mapper namespace="com.example.dao.DeptDao">
+	<!-- 查询用户信息 -->
+	<select id="selectDepts"  resultType="com.example.po.MyDept" >
+		select * from departments
+	</select>
+	
+	
+	<select id="selectDeptByDeptid" parameterType="java.lang.String" resultType="com.example.po.MyDept" >
+		select * from departments where department_id = #{id}
+	</select>
+	
+	<insert id = "insertDept" parameterType = "com.example.po.MyDept">
+		insert into departments values(#{department_id},#{department_name},#{manager_id},#{location_id})
+	</insert>
+	
+	<update id = "updateDept" parameterType = "com.example.po.MyDept">
+		update departments set department_name = #{department_name} where department_id = #{department_id}
+	</update>
+	<delete  id = "deleteDept" parameterType = "java.lang.String">
+		delete from departments where department_id = #{id}
+	</delete>
+	
+</mapper>
+
+
+
+
+
+
+
+
+

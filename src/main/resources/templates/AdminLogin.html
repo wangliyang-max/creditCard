@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/bootstrap-4.0.0.css" rel="stylesheet" />
+    <title>Document</title>
+    <style>
+      .container {
+        height: 600px;
+        display: flex;
+        align-items: center;
+        /* 水平居中 */
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .form-control {
+        margin: 10px 20px;
+      }
+      form {
+        border: 1px rgb(193, 190, 190) solid;
+        border-radius: 5px;
+        padding: 30px 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container text-center">
+      <form action="admin.login">
+        <div class="form-group form-inline">
+          <h4 th:text="${msg}" style="color: brown"></h4>
+        </div>
+        <div class="form-group form-inline">
+          <label for="exampleInputName2">账 号</label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputName2"
+            name="ADMINID"
+          />
+        </div>
+        <div class="form-group form-inline" id="form-group2">
+          <label for="exampleInputEmail2">密 码</label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputEmail2"
+            name="PASSWORD"
+          />
+        </div>
+        <div class="text-center">
+          <div class="custom-control custom-radio custom-control-inline">
+            <p class="lead">
+              <a class="btn btn-primary" href="index" role="button">返回</a>
+            </p>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <p class="lead">
+              <button class="btn btn-danger" type="submit">登录</button>
+            </p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

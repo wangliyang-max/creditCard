@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>株式会社　H　カード</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.0.0.css" rel="stylesheet" />
+
+    <style>
+      h2 {
+        color: rgb(133, 133, 133);
+      }
+      .nav-link:hover {
+        opacity: 0.5;
+      }
+      img.g {
+        width: 100%;
+        border-radius: 7px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">银行卡系统</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">手续 <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">联系我们</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="user.login.request">登录</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#">恢复申请</a></li>
+        </ul>
+        <ul class="navbar-nav mr-auto" style="width: 50%"></ul>
+
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item navbar-nav mr-auto">
+            <a class="nav-link" href="admin.login.request">管理员入口</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-12">
+          <div
+            id="carouselExampleControls"
+            class="carousel slide"
+            data-ride="carousel"
+          >
+            <ol class="carousel-indicators">
+              <li
+                data-target="#carouselExampleControls"
+                data-slide-to="0"
+                class="active"
+              ></li>
+              <li data-target="#carouselExampleControls" data-slide-to="1"></li>
+              <li data-target="#carouselExampleControls" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  class="d-block w-100"
+                  src="images/head1.JPG"
+                  alt="First slide"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  class="d-block w-100"
+                  src="images/head1.JPG"
+                  alt="Second slide"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  class="d-block w-100"
+                  src="images/head1.JPG"
+                  alt="Third slide"
+                />
+              </div>
+            </div>
+            <a
+              class="carousel-control-prev"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <hr />
+    </div>
+    <div class="container text-center">
+      <h2>卡类型</h2>
+      <br />
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-md-6 col-12">
+              <ul class="list-unstyled">
+                <li class="media">
+                  <div class="media-body">
+                    <img
+                      class="mr-3"
+                      src="images/master_1.jpg"
+                      alt="Mastercard® 法人カード"
+                    />
+                    <a class="nav-link" href="#">Mastercard® 法人卡 </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+              <ul class="list-unstyled">
+                <li class="media">
+                  <div class="media-body">
+                    <img
+                      class="mr-3"
+                      src="images/master_2.jpg"
+                      alt="Mastercard®個人カード"
+                    />
+                    <a class="nav-link" href="#">Mastercard® 个人卡 </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-4 d-md-none d-lg-block">
+              <ul class="list-unstyled">
+                <li class="media">
+                  <div class="media-body">
+                    <img
+                      class="mr-3"
+                      src="images/mastergold.jpg"
+                      alt="Mastercard® 個人ゴールドカード"
+                    />
+                    <a class="nav-link" href="#">Mastercard® 个人金卡 </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-md-6 col-12">
+              <ul class="list-unstyled">
+                <li class="media">
+                  <div class="media-body">
+                    <img
+                      class="mr-3"
+                      src="images/visa_1.jpg"
+                      alt="VISA 法人カード"
+                    />
+                    <a class="nav-link" href="#">VISA法人卡 </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+              <ul class="list-unstyled">
+                <li class="media">
+                  <div class="media-body">
+                    <img
+                      class="mr-3"
+                      src="images/visa_2.jpg"
+                      alt="VISA 個人カード"
+                    />
+                    <a class="nav-link" href="#">VISA个人卡 </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-4 d-md-none d-lg-block">
+              <ul class="list-unstyled">
+                <li class="media">
+                  <div class="media-body">
+                    <img
+                      class="mr-3"
+                      src="images/visagold.jpg"
+                      alt="VISA 個人ゴールドカード"
+                    />
+                    <a class="nav-link" href="#">VISA个人金卡</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-md-6 col-12">
+              <ul class="list-unstyled">
+                <li class="media">
+                  <div class="media-body">
+                    <img
+                      class="mr-3"
+                      src="images/JCB法人.gif"
+                      alt="JCB 法人カード"
+                    />
+                    <a class="nav-link" href="#">JCB法人卡 </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12">
+              <ul class="list-unstyled">
+                <li class="media">
+                  <div class="media-body">
+                    <img
+                      class="mr-3"
+                      src="images/JCBw.gif"
+                      alt="JCB 個人カード"
+                    />
+                    <a class="nav-link" href="#">JCB个人卡 </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-4 d-md-none d-lg-block">
+              <ul class="list-unstyled">
+                <li class="media">
+                  <div class="media-body">
+                    <img
+                      class="mr-3"
+                      src="images/jcbgold.gif"
+                      alt="JCB 個人ゴールドカード"
+                    />
+                    <a class="nav-link" href="#">JCB个人金卡</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <div class="container text-center">
+      <h2>功能一览</h2>
+      <br />
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-12">
+            <ul class="list-unstyled">
+              <li class="media">
+                <div class="media-body">
+                  <a class="nav-link" href="#">
+                    <img
+                      class="mr-3 g"
+                      src="images/g-1.jpg"
+                      alt="Mastercard® 法人カード"
+                    />
+                    申请管理
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 col-12">
+            <ul class="list-unstyled">
+              <li class="media">
+                <div class="media-body">
+                  <a class="nav-link" id="MemberAdmin" href="#">
+                    <img
+                      class="mr-3 g"
+                      src="images/g-2.jpg"
+                      alt="Mastercard® 法人カード"
+                    />
+                    会员管理
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 d-md-none d-lg-block">
+            <ul class="list-unstyled">
+              <li class="media">
+                <div class="media-body">
+                  <a class="nav-link" href="#">
+                    <img
+                      class="mr-3 g"
+                      src="images/g-3.jpg"
+                      alt="Mastercard® 法人カード"
+                    />
+                    积分管理
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 d-md-none d-lg-block">
+            <ul class="list-unstyled">
+              <li class="media">
+                <div class="media-body">
+                  <a class="nav-link" href="#">
+                    <img
+                      class="mr-3 g"
+                      src="images/g-4.jpg"
+                      alt="Mastercard® 法人カード"
+                    />
+                    资金管理
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="container"></div>
+    <footer class="text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <p>Copyright &copy; H &middot; All Rights Reserved &middot;</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.0.0.js"></script>
+    <script type='text/javascript'>
+        var MemberAdmin = document.getElementById("MemberAdmin")
+        MemberAdmin.onclick = function(){
+          alert("请先登录！")
+        }
+    </script>
+  </body>
+</html>

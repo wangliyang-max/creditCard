@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>株式会社　H　カード</title>
+<!-- Bootstrap -->
+<link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+<style>
+    select{
+        /* background: transparent;
+        border: 0px; */
+        outline: none;
+        -webkit-appearance: none;
+    }
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"><a class="navbar-brand" href="#">カードサイト</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse" >
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"> <a class="nav-link" href="#">お手続き <span class="sr-only"></span></a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#">お問い合わせ</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#">山田　さま</a> </li>
+        </ul>
+    </div>
+</nav>
+<hr>
+<div class="alert-danger text-center">
+    <P class="card-text">信用卡贷款额度增加确认</p>
+</div>
+<div class="container">
+    <form action="degree.add.card">
+    <input th:value="${APP.CSTID}" name="CSTID" style="display:none"></input>
+    <input th:value="${REQID}" name="REQID" style="display:none"></input>
+    <input th:value="${ADMINID}" id="ADMINID" name="ADMINID" style="display:none"></input>
+    <div class="row text-center"> </div>
+    <hr>
+    <div class="row card-header">カードローン枠増枠</div>
+    <br>
+    <div class="row">
+        <div class="col-3 bg-aqua">
+            <p>
+            <ul class="list-inline">
+                <li class="list-inline-item">申請期間</li>
+                <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
+            </ul>
+            </p>
+        </div>
+        <div class="col-4 bg-lemonchiffon">
+            <input class="form-control" th:value="${APP.SYOKBN}eq 'A'?'一時':'固定' " name="SYOKBN" readonly="readonly">
+        </div>
+        <div class="col-5 bg-lemonchiffon"></div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-3 bg-aqua">
+            <p>
+            <ul class="list-inline">
+                <li class="list-inline-item">ショッピング枠区分</li>
+                <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
+            </ul>
+            </p>
+        </div>
+        <div class="col-4 bg-lemonchiffon">
+            <select readonly="readonly" class="form-control" name="SPGTORKBN" id="">
+                <option th:selected="${APP.SPGTORKBN} eq 'A'" value="A">１０万</option>
+                <option th:selected="${APP.SPGTORKBN} eq 'B'" value="B">３０万</option>
+                <option th:selected="${APP.SPGTORKBN} eq 'C'" value="C">５０万</option>
+                <option th:selected="${APP.SPGTORKBN} eq 'D'" value="D">７０万</option>
+                <option th:selected="${APP.SPGTORKBN} eq 'E'" value="E">１００万</option>
+                <option th:selected="${APP.SPGTORKBN} eq 'F'" value="F">１２０万</option>
+                <option th:selected="${APP.SPGTORKBN} eq 'G'" value="G">１５０万</option>
+                <option th:selected="${APP.SPGTORKBN} eq 'H'" value="H">２００万</option>
+            </select>
+        </div>
+        <div class="col-5 bg-lemonchiffon"></div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-3 bg-aqua">
+            <p>
+            <ul class="list-inline">
+                <li class="list-inline-item">ショッピング取引目的区分</li>
+            </ul>
+            </p>
+        </div>
+        <div class="col-4">
+            <select readonly="readonly" class="form-control" name="SPGKBN" id="">
+                <option th:selected="${APP.SPGKBN} eq 'A'" value="A">生計費</option>
+                <option th:selected="${APP.SPGKBN} eq 'B'" value="B">事業費</option>
+                <option th:selected="${APP.SPGKBN} eq 'C'" value="C">生計費・事業費決済</option>
+                <option th:selected="${APP.SPGKBN} eq 'D'" value="D">その他</option>
+            </select>
+        </div>
+        <div class="col-5"></div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-3 bg-aqua">
+            <p>
+            <ul class="list-inline">
+                <li class="list-inline-item">キャッシング枠区分</li>
+                <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
+            </ul>
+            </p>
+        </div>
+        <div class="col-4 bg-lemonchiffon">
+            <select readonly="readonly" class="form-control" name="CSGKBN" id="">
+                <option th:selected="${APP.CSGKBN} eq 'A'" value="A">不要</option>
+                <option th:selected="${APP.CSGKBN} eq 'B'" value="B">１万</option>
+                <option th:selected="${APP.CSGKBN} eq 'C'" value="C">２万</option>
+                <option th:selected="${APP.CSGKBN} eq 'D'" value="D">３万</option>
+                <option th:selected="${APP.CSGKBN} eq 'E'" value="E">５万</option>
+                <option th:selected="${APP.CSGKBN} eq 'F'" value="F">７万</option>
+                <option th:selected="${APP.CSGKBN} eq 'G'" value="G">１０万</option>
+                <option th:selected="${APP.CSGKBN} eq 'H'" value="H">２０万</option>
+                <option th:selected="${APP.CSGKBN} eq 'I'" value="I">５０万</option>
+            </select>
+
+        </div>
+        <div class="col-5 bg-lemonchiffon"></div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-3 bg-aqua">
+            <p>
+            <ul class="list-inline">
+                <li class="list-inline-item">キャッシング取引目的区分</li>
+            </ul>
+            </p>
+        </div>
+        <div class="col-4">
+            <select readonly="readonly" class="form-control" name="TORKBN" id="">
+                    <option th:selected="${APP.TORKBN} eq 'A'" value="A">生計費融資</option>
+                    <option th:selected="${APP.TORKBN} eq 'B'" value="B">事業資金</option>
+                    <option th:selected="${APP.TORKBN} eq 'C'" value="C">その他</option>
+            </select>
+        </div>
+        <div class="col-5"></div>
+    </div>
+    <hr>
+    <div class="text-center">
+        <div class="custom-control custom-radio custom-control-inline">
+            <p class="lead"> <a id="BackMemberIndex" class="btn btn-danger btn-lg" th:href="@{MemberIndex?ID={CSTID}(CSTID=${APP.CSTID})}" role="button">返回</a> </p>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <p class="lead"> 
+                <button id="confirmChange" type="submit" class="btn btn-danger btn-lg">确认修改</button>
+            </p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="text-center col-lg-6 offset-lg-3">
+            <p>Copyright &copy; H &middot; All Rights Reserved &middot;</p>
+        </div>
+    </div>
+
+</form>
+</div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery-3.2.1.min.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/popper.min.js"></script> 
+<script src="js/bootstrap-4.0.0.js"></script>
+<script type='text/javascript'>
+    // BackMemberIndex
+      var ADMINID = document.getElementById("ADMINID")  
+      var BackMemberIndex = document.getElementById("BackMemberIndex");
+      BackMemberIndex.onclick = function (){
+         if(ADMINID.value != false){
+            BackMemberIndex.href="MemberIndex?ID=11111111111111"
+         }
+      }
+    //   REQID
+    var REQID = document.getElementsByName("REQID")[0]
+    var confirmChange = document.getElementById("confirmChange")
+       if(REQID.value != false){
+        confirmChange.style.display = "none"
+       }
+     //    ADMINID,通过判断是不是管理员，判断向哪里提交
+    var ADMINID = document.getElementsByName("ADMINID")[0]
+    var confirmChange = document.getElementById("confirmChange")
+    confirmChange.onclick =function(){
+        if(ADMINID.value == false){
+            ADMINID.parentElement.action="add.card.req"
+        }
+    }
+</script>
+</body>
+</html>

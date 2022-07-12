@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- com.dao.UserDao对应Dao接口 -->
+<mapper namespace="com.example.dao.ListDao">
+	<select id="selectUsersReq" resultType="com.example.po.MyUSERSREQ">
+		select * from USERSREQ where REQUSERID = #{id}
+	</select>
+	<select id="selectAdminsRes" resultType="com.example.po.MyADMINSRES">
+		select * from ADMINSRES
+	</select>
+	<select id="selectUsersReqByRegId" resultType="com.example.po.MyUSERSREQ">
+		select * from USERSREQ where REQID  = #{id}
+	</select>
+	<select id="selectAdminResByRegId" resultType="com.example.po.MyADMINSRES">
+		select * from ADMINSRES where RESID  = #{id}
+	</select>
+	
+	<delete  id="deleteUsersReq" parameterType = "java.lang.String">
+		delete from USERSREQ where REQID = #{id}
+	</delete>
+	<delete  id="deleteAdminsRes" parameterType = "java.lang.String">
+		delete from ADMINSRES where RESID = #{id}
+	</delete>
+	<update  id="updateAdminResByRegId" parameterType = "java.lang.String">
+		update ADMINSRES set RESSTATE='已通过' where RESID = #{id}
+	</update>
+	<update  id="updateAdminResByRegIdRej" parameterType = "java.lang.String">
+		update ADMINSRES set RESSTATE='已拒绝' where RESID = #{id}
+	</update>
+	<update  id="updateUserReqByRegId" parameterType = "java.lang.String">
+		update USERSREQ set REQSTATE='已通过' where REQID = #{id}
+	</update>
+	<update  id="updateUserReqByRegIdRej" parameterType = "java.lang.String">
+		update USERSREQ set REQSTATE='已拒绝' where REQID = #{id}
+	</update>
+	
+	
+	<insert id="insertUsersReq" parameterType="com.example.po.MyUSERSREQ">
+	
+		<selectKey order="BEFORE" keyProperty="REQID" resultType="String">  
+	       SELECT S_COUNT.Nextval as REQID from DUAL  
+	  	</selectKey> 
+	
+			insert into USERSREQ(REQID,REQTYPE,REQUSERID,REQDATE,REQSTATE,CSTID,
+			PHO,SEIKJ,MEIKJ,SEIKN,MEIKN,
+			SEIEN,MEIEN,JKYSBT,TEL,POST,
+			JSKJ1,JSKJ2,JSKN1,JSKN2,
+			DRIVERID,KKHCD,HGSUMK,KZKMLFLG,CAMMLFLG,
+			HNNHHUCD,HNNFLG,KZKFLG,GYOCD,KMS,
+			KMSDEP,KMSTEL,KMSJS1,KMSJS2,NSHYM,
+			NSG,KZKSEIKJ,KZKMEIKJ,KZKSEIKN,KZKMEIKN,
+			KZKSEIEN,KZKMEIEN,KZKSEX,KZKGYOCD,KZKKMS,
+			KZKKMSDEP,KZKKMSTEL) values
+		(
+		#{REQID},
+		#{REQTYPE}, 
+		#{REQUSERID},
+		#{REQDATE},
+		#{REQSTATE},
+		#{CSTID},
+		
+		#{PHO},
+		#{SEIKJ},
+		#{MEIKJ},
+		#{SEIKN},
+		#{MEIKN},
+		
+		#{SEIEN},
+		#{MEIEN},
+		#{JKYSBT},
+		#{TEL},
+		#{POST},
+		
+		#{JSKJ1},
+		#{JSKJ2},
+		#{JSKN1},
+		#{JSKN2},
+		
+		#{DRIVERID},
+		#{KKHCD},
+		#{HGSUMK},
+		#{KZKMLFLG},
+		#{CAMMLFLG},
+		
+		#{HNNHHUCD},
+		#{HNNFLG},
+		#{KZKFLG},
+		#{GYOCD},
+		#{KMS},
+		
+		#{KMSDEP},
+		#{KMSTEL},
+		#{KMSJS1},
+		#{KMSJS2},
+		#{NSHYM},
+		
+		#{NSG},
+		#{KZKSEIKJ},
+		#{KZKMEIKJ},
+		#{KZKSEIKN},
+		#{KZKMEIKN},
+	
+		#{KZKSEIEN},
+		#{KZKMEIEN},
+		#{KZKSEX},
+		#{KZKGYOCD},
+		#{KZKKMS},
+		
+		#{KZKKMSDEP},
+		#{KZKKMSTEL}
+		)
+	</insert>
+	
+	<insert id="insertAdminRes" parameterType="com.example.po.MyUSERSREQ">
+			insert into ADMINSRES(RESID,RESTYPE,RESUSERID,RESDATE,RESSTATE,CSTID,
+			PHO,SEIKJ,MEIKJ,SEIKN,MEIKN,
+			SEIEN,MEIEN,JKYSBT,TEL,POST,
+			JSKJ1,JSKJ2,JSKN1,JSKN2,
+			DRIVERID,KKHCD,HGSUMK,KZKMLFLG,CAMMLFLG,
+			HNNHHUCD,HNNFLG,KZKFLG,GYOCD,KMS,
+			KMSDEP,KMSTEL,KMSJS1,KMSJS2,NSHYM,
+			NSG,KZKSEIKJ,KZKMEIKJ,KZKSEIKN,KZKMEIKN,
+			KZKSEIEN,KZKMEIEN,KZKSEX,KZKGYOCD,KZKKMS,
+			KZKKMSDEP,KZKKMSTEL) values
+		(
+		#{REQID},
+		#{REQTYPE}, 
+		#{REQUSERID},
+		#{REQDATE},
+		#{REQSTATE},
+		#{CSTID},
+		
+		#{PHO},
+		#{SEIKJ},
+		#{MEIKJ},
+		#{SEIKN},
+		#{MEIKN},
+		
+		#{SEIEN},
+		#{MEIEN},
+		#{JKYSBT},
+		#{TEL},
+		#{POST},
+		
+		#{JSKJ1},
+		#{JSKJ2},
+		#{JSKN1},
+		#{JSKN2},
+		
+		#{DRIVERID},
+		#{KKHCD},
+		#{HGSUMK},
+		#{KZKMLFLG},
+		#{CAMMLFLG},
+		
+		#{HNNHHUCD},
+		#{HNNFLG},
+		#{KZKFLG},
+		#{GYOCD},
+		#{KMS},
+		
+		#{KMSDEP},
+		#{KMSTEL},
+		#{KMSJS1},
+		#{KMSJS2},
+		#{NSHYM},
+		
+		#{NSG},
+		#{KZKSEIKJ},
+		#{KZKMEIKJ},
+		#{KZKSEIKN},
+		#{KZKMEIKN},
+	
+		#{KZKSEIEN},
+		#{KZKMEIEN},
+		#{KZKSEX},
+		#{KZKGYOCD},
+		#{KZKKMS},
+		
+		#{KZKKMSDEP},
+		#{KZKKMSTEL}
+		)
+	</insert>
+	
+	<insert id="insertUsersReqKBN" parameterType="com.example.po.MyUSERSREQ">
+	
+		<selectKey order="BEFORE" keyProperty="REQID" resultType="String">  
+	       SELECT S_COUNT.Nextval as REQID from DUAL  
+	  	</selectKey> 
+	
+			insert into USERSREQ(REQID,REQTYPE,REQUSERID,REQDATE,REQSTATE,CSTID,
+			PHO,SEIKJ,MEIKJ,SEIKN,MEIKN,
+			SEIEN,MEIEN,JKYSBT,TEL,POST,
+			JSKJ1,JSKJ2,JSKN1,JSKN2,
+			DRIVERID,KKHCD,HGSUMK,KZKMLFLG,CAMMLFLG,
+			HNNHHUCD,HNNFLG,KZKFLG,GYOCD,KMS,
+			KMSDEP,KMSTEL,KMSJS1,KMSJS2,NSHYM,
+			NSG,KZKSEIKJ,KZKMEIKJ,KZKSEIKN,KZKMEIKN,
+			KZKSEIEN,KZKMEIEN,KZKSEX,KZKGYOCD,KZKKMS,
+			KZKKMSDEP,KZKKMSTEL,
+			SYOKBN,SPGTORKBN,SPGKBN,CSGKBN,TORKBN) values
+		(
+		#{REQID},
+		#{REQTYPE}, 
+		#{REQUSERID},
+		#{REQDATE},
+		#{REQSTATE},
+		#{CSTID},
+		
+		#{PHO},
+		#{SEIKJ},
+		#{MEIKJ},
+		#{SEIKN},
+		#{MEIKN},
+		
+		#{SEIEN},
+		#{MEIEN},
+		#{JKYSBT},
+		#{TEL},
+		#{POST},
+		
+		#{JSKJ1},
+		#{JSKJ2},
+		#{JSKN1},
+		#{JSKN2},
+		
+		#{DRIVERID},
+		#{KKHCD},
+		#{HGSUMK},
+		#{KZKMLFLG},
+		#{CAMMLFLG},
+		
+		#{HNNHHUCD},
+		#{HNNFLG},
+		#{KZKFLG},
+		#{GYOCD},
+		#{KMS},
+		
+		#{KMSDEP},
+		#{KMSTEL},
+		#{KMSJS1},
+		#{KMSJS2},
+		#{NSHYM},
+		
+		#{NSG},
+		#{KZKSEIKJ},
+		#{KZKMEIKJ},
+		#{KZKSEIKN},
+		#{KZKMEIKN},
+	
+		#{KZKSEIEN},
+		#{KZKMEIEN},
+		#{KZKSEX},
+		#{KZKGYOCD},
+		#{KZKKMS},
+		
+		#{KZKKMSDEP},
+		#{KZKKMSTEL},
+		
+		#{SYOKBN},
+		#{SPGTORKBN},
+		#{SPGKBN},
+		#{CSGKBN},
+		#{TORKBN}
+		)
+	</insert>
+	
+	<insert id="insertAdminResKBN" parameterType="com.example.po.MyUSERSREQ">
+			insert into ADMINSRES(RESID,RESTYPE,RESUSERID,RESDATE,RESSTATE,CSTID,
+			PHO,SEIKJ,MEIKJ,SEIKN,MEIKN,
+			SEIEN,MEIEN,JKYSBT,TEL,POST,
+			JSKJ1,JSKJ2,JSKN1,JSKN2,
+			DRIVERID,KKHCD,HGSUMK,KZKMLFLG,CAMMLFLG,
+			HNNHHUCD,HNNFLG,KZKFLG,GYOCD,KMS,
+			KMSDEP,KMSTEL,KMSJS1,KMSJS2,NSHYM,
+			NSG,KZKSEIKJ,KZKMEIKJ,KZKSEIKN,KZKMEIKN,
+			KZKSEIEN,KZKMEIEN,KZKSEX,KZKGYOCD,KZKKMS,
+			KZKKMSDEP,KZKKMSTEL,
+			SYOKBN,SPGTORKBN,SPGKBN,CSGKBN,TORKBN) values
+		(
+		#{REQID},
+		#{REQTYPE}, 
+		#{REQUSERID},
+		#{REQDATE},
+		#{REQSTATE},
+		#{CSTID},
+		
+		#{PHO},
+		#{SEIKJ},
+		#{MEIKJ},
+		#{SEIKN},
+		#{MEIKN},
+		
+		#{SEIEN},
+		#{MEIEN},
+		#{JKYSBT},
+		#{TEL},
+		#{POST},
+		
+		#{JSKJ1},
+		#{JSKJ2},
+		#{JSKN1},
+		#{JSKN2},
+		
+		#{DRIVERID},
+		#{KKHCD},
+		#{HGSUMK},
+		#{KZKMLFLG},
+		#{CAMMLFLG},
+		
+		#{HNNHHUCD},
+		#{HNNFLG},
+		#{KZKFLG},
+		#{GYOCD},
+		#{KMS},
+		
+		#{KMSDEP},
+		#{KMSTEL},
+		#{KMSJS1},
+		#{KMSJS2},
+		#{NSHYM},
+		
+		#{NSG},
+		#{KZKSEIKJ},
+		#{KZKMEIKJ},
+		#{KZKSEIKN},
+		#{KZKMEIKN},
+	
+		#{KZKSEIEN},
+		#{KZKMEIEN},
+		#{KZKSEX},
+		#{KZKGYOCD},
+		#{KZKKMS},
+		
+		#{KZKKMSDEP},
+		#{KZKKMSTEL},
+		
+		#{SYOKBN},
+		#{SPGTORKBN},
+		#{SPGKBN},
+		#{CSGKBN},
+		#{TORKBN}
+		)
+	</insert>
+	
+	<insert id="insertUsersReqCardChange" parameterType="com.example.po.MyUSERSREQ">
+	
+		<selectKey order="BEFORE" keyProperty="REQID" resultType="String">  
+	       SELECT S_COUNT.Nextval as REQID from DUAL  
+	  	</selectKey> 
+	
+			insert into USERSREQ(REQID,REQTYPE,REQUSERID,REQDATE,REQSTATE,CSTID,
+			PHO,SEIKJ,MEIKJ,SEIKN,MEIKN,
+			SEIEN,MEIEN,JKYSBT,TEL,POST,
+			JSKJ1,JSKJ2,JSKN1,JSKN2,
+			DRIVERID,KKHCD,HGSUMK,KZKMLFLG,CAMMLFLG,
+			HNNHHUCD,HNNFLG,KZKFLG,GYOCD,KMS,
+			KMSDEP,KMSTEL,KMSJS1,KMSJS2,NSHYM,
+			NSG,KZKSEIKJ,KZKMEIKJ,KZKSEIKN,KZKMEIKN,
+			KZKSEIEN,KZKMEIEN,KZKSEX,KZKGYOCD,KZKKMS,
+			KZKKMSDEP,KZKKMSTEL,
+			CRDSHUCD,KZKKBN) values
+		(
+		#{REQID},
+		#{REQTYPE}, 
+		#{REQUSERID},
+		#{REQDATE},
+		#{REQSTATE},
+		#{CSTID},
+		
+		#{PHO},
+		#{SEIKJ},
+		#{MEIKJ},
+		#{SEIKN},
+		#{MEIKN},
+		
+		#{SEIEN},
+		#{MEIEN},
+		#{JKYSBT},
+		#{TEL},
+		#{POST},
+		
+		#{JSKJ1},
+		#{JSKJ2},
+		#{JSKN1},
+		#{JSKN2},
+		
+		#{DRIVERID},
+		#{KKHCD},
+		#{HGSUMK},
+		#{KZKMLFLG},
+		#{CAMMLFLG},
+		
+		#{HNNHHUCD},
+		#{HNNFLG},
+		#{KZKFLG},
+		#{GYOCD},
+		#{KMS},
+		
+		#{KMSDEP},
+		#{KMSTEL},
+		#{KMSJS1},
+		#{KMSJS2},
+		#{NSHYM},
+		
+		#{NSG},
+		#{KZKSEIKJ},
+		#{KZKMEIKJ},
+		#{KZKSEIKN},
+		#{KZKMEIKN},
+	
+		#{KZKSEIEN},
+		#{KZKMEIEN},
+		#{KZKSEX},
+		#{KZKGYOCD},
+		#{KZKKMS},
+		
+		#{KZKKMSDEP},
+		#{KZKKMSTEL},
+		
+		#{CRDSHUCD},
+		#{KZKKBN}
+		)
+	</insert>
+	
+	<insert id="insertAdminResCardChange" parameterType="com.example.po.MyUSERSREQ">
+			insert into ADMINSRES(RESID,RESTYPE,RESUSERID,RESDATE,RESSTATE,CSTID,
+			PHO,SEIKJ,MEIKJ,SEIKN,MEIKN,
+			SEIEN,MEIEN,JKYSBT,TEL,POST,
+			JSKJ1,JSKJ2,JSKN1,JSKN2,
+			DRIVERID,KKHCD,HGSUMK,KZKMLFLG,CAMMLFLG,
+			HNNHHUCD,HNNFLG,KZKFLG,GYOCD,KMS,
+			KMSDEP,KMSTEL,KMSJS1,KMSJS2,NSHYM,
+			NSG,KZKSEIKJ,KZKMEIKJ,KZKSEIKN,KZKMEIKN,
+			KZKSEIEN,KZKMEIEN,KZKSEX,KZKGYOCD,KZKKMS,
+			KZKKMSDEP,KZKKMSTEL,
+			CRDSHUCD,KZKKBN) values
+		(
+		#{REQID},
+		#{REQTYPE}, 
+		#{REQUSERID},
+		#{REQDATE},
+		#{REQSTATE},
+		#{CSTID},
+		
+		#{PHO},
+		#{SEIKJ},
+		#{MEIKJ},
+		#{SEIKN},
+		#{MEIKN},
+		
+		#{SEIEN},
+		#{MEIEN},
+		#{JKYSBT},
+		#{TEL},
+		#{POST},
+		
+		#{JSKJ1},
+		#{JSKJ2},
+		#{JSKN1},
+		#{JSKN2},
+		
+		#{DRIVERID},
+		#{KKHCD},
+		#{HGSUMK},
+		#{KZKMLFLG},
+		#{CAMMLFLG},
+		
+		#{HNNHHUCD},
+		#{HNNFLG},
+		#{KZKFLG},
+		#{GYOCD},
+		#{KMS},
+		
+		#{KMSDEP},
+		#{KMSTEL},
+		#{KMSJS1},
+		#{KMSJS2},
+		#{NSHYM},
+		
+		#{NSG},
+		#{KZKSEIKJ},
+		#{KZKMEIKJ},
+		#{KZKSEIKN},
+		#{KZKMEIKN},
+	
+		#{KZKSEIEN},
+		#{KZKMEIEN},
+		#{KZKSEX},
+		#{KZKGYOCD},
+		#{KZKKMS},
+		
+		#{KZKKMSDEP},
+		#{KZKKMSTEL},
+		
+		#{CRDSHUCD},
+		#{KZKKBN}
+		)
+	</insert>
+	
+	<insert id="insertUsersReqDelete" parameterType="com.example.po.MyUSERSREQ">
+
+		<selectKey order="BEFORE" keyProperty="REQID" resultType="String">  
+	       SELECT S_COUNT.Nextval as REQID from DUAL  
+	  	</selectKey> 
+
+		insert into USERSREQ(REQID,REQTYPE,REQUSERID,REQDATE,REQSTATE) values
+		(
+		#{REQID},
+		#{REQTYPE}, 
+		#{REQUSERID},
+		#{REQDATE},
+		#{REQSTATE})
+	</insert>
+	
+	<insert id="insertAdminResDelete" parameterType="com.example.po.MyUSERSREQ">
+			insert into ADMINSRES(RESID,RESTYPE,RESUSERID,RESDATE,RESSTATE) values
+		(
+		#{REQID},
+		#{REQTYPE}, 
+		#{REQUSERID},
+		#{REQDATE},
+		#{REQSTATE}
+		)
+	</insert>
+	
+	
+	
+	<update id="changeRESAPP" parameterType="com.example.po.MyADMINSRES">
+		update APP set 
+		PHO = #{PHO},
+		SEIKJ=#{SEIKJ},
+		MEIKJ=#{MEIKJ},
+		SEIKN=#{SEIKN},
+		MEIKN=#{MEIKN},
+		SEIEN=#{SEIEN},
+		MEIEN=#{MEIEN},
+		JKYSBT=#{JKYSBT},
+		TEL=#{TEL},
+		POST=#{POST},	
+		JSKJ1=#{JSKJ1},
+		JSKJ2=#{JSKJ2},
+		JSKN1=#{JSKN1},
+		JSKN2=#{JSKN2},
+		DRIVERID=#{DRIVERID},
+		KKHCD=#{KKHCD},
+		HGSUMK=#{HGSUMK},
+		KZKMLFLG=#{KZKMLFLG},
+		CAMMLFLG=#{CAMMLFLG},
+		HNNHHUCD=#{HNNHHUCD},
+		HNNFLG=#{HNNFLG},
+		KZKFLG=#{KZKFLG},
+		GYOCD=#{GYOCD},
+		KMS=#{KMS},
+		KMSDEP=#{KMSDEP},
+		KMSTEL=#{KMSTEL},
+		KMSJS1=#{KMSJS1},
+		KMSJS2=#{KMSJS2},
+		NSHYM=#{NSHYM},
+		NSG=#{NSG},
+		KZKSEIKJ=#{KZKSEIKJ},
+		KZKMEIKJ=#{KZKMEIKJ},
+		KZKSEIKN=#{KZKSEIKN},
+		KZKMEIKN=#{KZKMEIKN},
+		KZKSEIEN=#{KZKSEIEN},
+		KZKMEIEN=#{KZKMEIEN},
+		KZKSEX=#{KZKSEX},
+		KZKGYOCD=#{KZKGYOCD},
+		KZKKMS=#{KZKKMS},
+		KZKKMSDEP=#{KZKKMSDEP},
+		KZKKMSTEL=#{KZKKMSTEL} 
+		where CSTID = #{CSTID}
+	</update>
+	<update id="cardAddRESAPP" parameterType="com.example.po.MyADMINSRES">
+		update APP set 
+		SYOKBN = #{SYOKBN},
+		SPGTORKBN = #{SPGTORKBN},
+		SPGKBN = #{SPGKBN},
+		CSGKBN = #{CSGKBN},
+		TORKBN = #{TORKBN}
+		where CSTID = #{CSTID}
+	</update>
+
+	<update id="changeRESCard" parameterType="com.example.po.MyADMINSRES">
+		update APP set 
+		KZKKBN = #{KZKKBN},
+		CRDSHUCD = #{CRDSHUCD}
+		where CSTID = #{CSTID}
+	</update>
+
+	<update id="deleteAppRESAPP" parameterType="com.example.po.MyADMINSRES">
+		delete from APP where CSTID = #{RESUSERID}
+	</update>
+
+</mapper>

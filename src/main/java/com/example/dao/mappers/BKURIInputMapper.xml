@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- com.dao.UserDao对应Dao接口 -->
+<mapper namespace="com.example.dao.BKURIInputDao">
+	
+	<select id="insertBKURI"  parameterType="com.example.po.BKURI">
+		insert into BKURI values(#{SEQ},#{KINO},#{CSTID},#{HNNKZK},#{BKUAG},#{TESURYO},#{TSK},#{SKYYM},#{TSKFLG},#{INSERTDTE},#{INSERTID},#{UPDATEDTE},#{UPDATEID},#{DELETEFLG},#{DELETEDTE})
+	</select>
+	
+</mapper>

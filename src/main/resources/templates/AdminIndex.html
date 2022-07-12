@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>株式会社　H　カード</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.0.0.css" rel="stylesheet" />
+
+    <style>
+      h2 {
+        color: rgb(133, 133, 133);
+      }
+      .nav-link:hover {
+        opacity: 0.5;
+      }
+      img.g {
+        width: 100%;
+        border-radius: 7px;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">银行卡系统</a>
+      <a id="unload" class="navbar-brand" href="#">退出</a>
+    </nav>
+
+    <br />
+    <hr />
+    <br />
+    <div class="container text-center">
+      <input th:value="${CSTID}" name="CSTID" style="display:none"></input>
+      <input th:value="${ADMINID}" name="ADMINID" style="display:none"></input>
+      <br />
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-12">
+            <ul class="list-unstyled">
+              <li class="media">
+                <div class="media-body">
+                  <a class="nav-link" href="IndexShenQing">
+                    <img
+                      class="mr-3 g"
+                      src="images/g-1.jpg"
+                      alt="Mastercard® 法人カード"
+                    />
+                    申请管理
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 col-12">
+            <ul class="list-unstyled">
+              <li class="media">
+                <div class="media-body">
+                  <a class="nav-link" href="MemberIndex?ID=11111111111111">
+                    <img
+                      class="mr-3 g"
+                      src="images/g-2.jpg"
+                      alt="Mastercard® 法人カード"
+                    />
+                    会员管理
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 d-md-none d-lg-block">
+            <ul class="list-unstyled">
+              <li class="media">
+                <div class="media-body">
+                  <a class="nav-link" href="IndexJiFen">
+                    <img
+                      class="mr-3 g"
+                      src="images/g-3.jpg"
+                      alt="Mastercard® 法人カード"
+                    />
+                    积分管理
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 d-md-none d-lg-block">
+            <ul class="list-unstyled">
+              <li class="media">
+                <div class="media-body">
+                  <a class="nav-link" href="indexZiJin">
+                    <img
+                      class="mr-3 g"
+                      src="images/g-4.jpg"
+                      alt="Mastercard® 法人カード"
+                    />
+                    资金管理
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.0.0.js"></script>
+    <script type="text/javascript">
+      var unload = document.getElementById("unload");
+      unload.onclick = function () {
+        var result = confirm("是否退出登录？");
+        if (result == false) {
+          unload.href = "#";
+        } else {
+          unload.href = "index";
+        }
+      };
+    </script>
+  </body>
+</html>

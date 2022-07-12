@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title></title>
+<link rel="stylesheet" type="text/css" href="css/comm.css" />
+
+</head>
+<body>
+	<!--<div id="div1">div1</div>
+
+	<form action="select.action" method="post">
+		<input type="submit" value="查找" />
+	</form>
+	
+	<hr>
+	
+	<form action="select1.action" method="post">
+	    department_id:<input type="text" name="deptid" id="" value="" />
+		<input type="submit" value="查找id" />
+	</form>
+	
+	<hr>
+	<span th:text="${msg}" style="color:red"></span>
+	<form action="insert.action" method="post">
+	    <table width="600px">
+	        <tr><td>department_id: </td><td><input type="text" name="deptid" id="" value="" /></td></tr>
+	        <tr><td>department_name: </td><td><input type="text" name="deptname" id="" value="" /></td></tr>
+	        <tr><td>manager_id: </td><td><input type="text" name="managerid" id="" value="" /></td></tr>
+	        <tr><td>location_id: </td><td><input type="text" name="locationid" id="" value="" /></td></tr>
+	        <tr><td><input type="submit" value="提交" /></td><td><input type="reset" value="重置" /></td></tr>
+	    </table>
+	</form>-->
+		
+	<hr>
+	
+	<h4>积分奖励信息查询</h4>
+	<form action="select.pntinf" method="post">
+	    客户ID: <input type="text" name="CSTID" id="" value="" required="required"/>
+		<input type="submit" value="查找" />
+	</form>
+	
+	<hr>
+	
+	<h4>积分合计信息查询</h4>
+	<form action="select.pntsykknr" method="post">
+	    客户ID: <input type="text" name="CSTID" id="" value="" required="required"/>
+		<input type="submit" value="查找" />
+	</form>
+		
+	<hr>
+		
+	<h4>积分使用信息查询</h4>
+	<form action="select.pnttukknr" method="post">
+	    客户ID: <input type="text" name="CSTID" id="" value="" required="required"/>
+		<input type="submit" value="查找" />
+	</form>
+		
+	<hr>
+	
+	<h4>积分奖励信息表生成</h4>
+	<span th:text="${insert_pntinf_msg}" style="color:red"></span>
+	<form action="insert.pntinf" method="p ost">
+	    <table width="600px">
+	        <tr>
+	            <td>积分信息ID: </td>
+	            <td><input type="text" name="PNTINFID" id="" value="" required="required"/></td>
+	        </tr>
+	        <tr>
+	            <td>客户ID: </td>
+	            <td><input type="text" name="CSTID" id="" value=""  required="required"/></td>
+	        </tr>
+	        <tr>
+	            <td>本人家属: </td>
+	            <td><input type="text" name="HNNKZK" id="" value=""  required="required"/></td>
+	        </tr>
+	        <tr>
+	            <td>销售情况: </td>
+	            <td><input type="text" name="URSEQ" id="" value="" /></td>
+	        </tr>
+	        <tr>
+	            <td>协作状态: </td>
+	            <td><input type="text" name="RKSTS" id="" value="" /></td>
+	        </tr>
+	        <tr>
+	            <td>点数: </td>
+	            <td><input type="number" name="PNTCOU" id="" value="" /></td>
+	        </tr>
+	        <tr>
+	            <td>市场活动标识: </td>
+	            <td><input type="text" name="CAMPID" id="" value=""  /></td>
+	        </tr>
+	        <tr>
+	            <td>注册日期: </td>
+	            <td><input type="Date" name="INSERTDTE" id="" value=""  required="required"/></td>
+	        </tr>
+	        <tr>
+	            <td>注册用户ID: </td>
+	            <td><input type="text" name="INSERTID" id="" value=""  required="required"/></td>
+	        </tr>
+	        <tr>
+	            <td>更新日期: </td>
+	            <td><input type="Date" name="UPDATEDTE" id="" value=""  required="required"/></td>
+	        </tr>
+	        <tr>
+	            <td>更新后的用户ID: </td>
+	            <td><input type="text" name="UPDATEID" id="" value=""  required="required"/></td>
+	        </tr>
+	        <tr>
+	            <td>删除标志: </td>
+	            <td><input type="text" name="DELETEFLG" id="" value=""  required="required"/></td>
+	        </tr>
+	        <tr>
+	            <td>理论上的删除日期: </td>
+	            <td><input type="Date" name="DELETEDTE" id="" value="" /></td>
+	        </tr>
+	        <tr>
+	            <td><input type="submit" value="提交" /></td>
+	            <td><input type="reset" value="重置" /></td>
+	        </tr>
+	    </table>
+	</form>
+	
+	<hr>
+	
+	<h4>积分合计管理表生成</h4>
+	<span th:text="${insert_pntsykknr_msg}" style="color:red"></span>
+	<form action="insert.pntsykknr" method="post">
+	    <table width="600px">
+	        <tr>
+	            <td>客户ID: </td>
+	            <td><input type="text" name="CSTID" id="" value=""  required="required"/></td>
+	        </tr>
+	        <tr>
+	            <td>协作时间: </td>
+	            <td><input type="Date" name="RKDTE" id="" value=""  required="required"/></td>
+	        </tr>
+	        <tr>
+	            <td>点数合计: </td>
+	            <td><input type="number" name="PNTCOU" id="" value="" /></td>
+	        </tr>
+	        <tr>
+	            <td>注册日期: </td>
+	            <td><input type="Date" name="INSERTDTE" id="" value=""  required="required"/></td>
+	        </tr>
+	        <tr>
+	            <td>注册用户ID: </td>
+	            <td><input type="text" name="INSERTID" id="" value=""  required="required"/></td>
+	        </tr>
+	        <tr>
+	            <td>更新后的用户ID: </td>
+	            <td><input type="text" name="UPDATEID" id="" value=""  required="required"/></td>
+	        </tr>
+	        <tr>
+	            <td>删除标志: </td>
+	            <td><input type="text" name="DELETEFLG" id="" value=""  required="required"/></td>
+	        </tr>
+	        <tr>
+	            <td>理论上的删除日期: </td>
+	            <td><input type="Date" name="DELETEDTE" id="" value="" /></td>
+	        </tr>
+	        <tr>
+	            <td><input type="submit" value="提交" /></td>
+	            <td><input type="reset" value="重置" /></td>
+	        </tr>
+	    </table>
+	</form>
+	
+	<hr>
+	
+	<h4>积分使用管理表生成</h4>
+	<span th:text="${insert_pnttukknr_msg}" style="color:red"></span>
+	<form action="insert.pnttukknr" method="post">
+	    <table width="600px">
+	        <tr>
+	            <td>客户ID: </td>
+	            <td><input type="text" name="CSTID" id="" value=""  required="required"/></td>
+	        </tr>
+	        <tr>
+	            <td>使用点数: </td>
+	            <td><input type="number" name="PNTCOU" id="" value="" /></td>
+	        </tr>
+	        <tr>
+	            <td>注册日期: </td>
+	            <td><input type="Date" name="INSERTDTE" id="" value=""  required="required"/></td>
+	        </tr>
+	        <tr>
+	            <td>注册用户ID: </td>
+	            <td><input type="text" name="INSERTID" id="" value=""  required="required"/></td>
+	        </tr>
+	        <tr>
+	            <td>更新日期: </td>
+	            <td><input type="Date" name="UPDATEDTE" id="" value=""  required="required"/></td>
+	        </tr>
+	        <tr>
+	            <td>更新后的用户ID: </td>
+	            <td><input type="text" name="UPDATEID" id="" value=""  required="required"/></td>
+	        </tr>
+	        <tr>
+	            <td>删除标志: </td>
+	            <td><input type="text" name="DELETEFLG" id="" value=""  required="required"/></td>
+	        </tr>
+	        <tr>
+	            <td>理论上的删除日期: </td>
+	            <td><input type="Date" name="DELETEDTE" id="" value="" /></td>
+	        </tr>
+	        <tr>
+	            <td><input type="submit" value="提交" /></td>
+	            <td><input type="reset" value="重置" /></td>
+	        </tr>
+	    </table>
+	</form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- com.dao.UserDao对应Dao接口 -->
+<mapper namespace="com.example.dao.CardDao">
+
+	<update id="changeCard" parameterType="com.example.po.MyAPP">
+		update APP set 
+		CRDSHUCD = #{CRDSHUCD},
+		KZKKBN = #{KZKKBN}
+		where CSTID = #{CSTID}
+	</update>
+
+	<delete  id = "cardDelete" parameterType = "java.lang.String">
+		delete from APP where CSTID = #{id}
+	</delete>
+	<delete  id = "cardDeleteCST" parameterType = "java.lang.String">
+		delete from CST where CSTID = #{id}
+	</delete>
+	
+	<update id="degreeAddCard" parameterType="com.example.po.MyAPP">
+		update APP set 
+		SYOKBN = #{SYOKBN},
+		SPGTORKBN = #{SPGTORKBN},
+		SPGKBN = #{SPGKBN},
+		CSGKBN = #{CSGKBN},
+		TORKBN = #{TORKBN}
+		where CSTID = #{CSTID}
+	</update>
+
+</mapper>

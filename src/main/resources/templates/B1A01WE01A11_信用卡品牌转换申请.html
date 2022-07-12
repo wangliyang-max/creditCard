@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>更换卡品牌</title>
+<!-- Bootstrap -->
+<link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+<style>
+    select{
+        /* background: transparent;
+        border: 0px; */
+        outline: none;
+        -webkit-appearance: none;
+    }
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"><a class="navbar-brand" href="#">卡片站点</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse" >
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"> <a class="nav-link" href="#">お手続き <span class="sr-only"></span></a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#">お問い合わせ</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#">山田　さま</a> </li>
+        </ul>
+    </div>
+</nav>
+<hr>
+<div class="alert-danger text-center">
+    <P class="card-text">信用卡品牌转换申请</p>
+</div>
+<form action="card.change.application" method="post">
+<div class="container">
+    <input th:value="${APP.CSTID}" name="CSTID" style="display:none"></input>
+    <input th:value="${ADMINID}" id="ADMINID" name="ADMINID" style="display:none"></input>
+
+    <div class="row text-center"> </div>
+    <hr>
+    <div class="row">
+        <div class=" col-md-4 card-body card">
+            <h5 class="card-title alert-dark"><strong>本人使用中的卡</strong></h5>
+            <!-- <h4 th:text="${APP.CRDSHUCD}">CRDSHUCD</h4> -->
+            <!-- <h4 th:text="${CRDSHUCD_url}">CRDSHUCD_url</h4> -->
+            <img class="card-img card-img-top" th:src="@{images/{imgName}(imgName=${CRDSHUCD_url})}" alt="Card image cap"> </div>
+        <div class="col-md-4 card-body card">
+            <h5 class="card-title alert-dark"><strong>家族使用中的卡</strong></h5>
+            <!-- <h4 th:text="${APP.KZKKBN}">KZKKBN</h4> -->
+            <!-- <h4 th:text="${KZKKBN_url}">KZKKBN_url</h4> -->
+            <img class="card-img card-img-top"  th:src="@{images/{imgName}(imgName=${KZKKBN_url})}" alt="Card image cap"> </div>
+        <div class="col-md-4 card-body card">
+            <h5 class="card-title alert-dark"><strong>ETC使用中的卡</strong></h5>
+             <!-- <h4 th:text="${APP.ETCFLG}">ETCFLG</h4> -->
+             <!-- <h4 th:text="${ETCFLG_url}">ETCFLG_url</h4> -->
+            <img class="card-img card-img-top" th:src="@{images/{imgName}(imgName=${ETCFLG_url})}" alt="Card image cap"> </div>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">本人申请的卡</li>
+                    <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
+                </ul>
+                </P>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <div class="form-group">
+                    <select class="form-control" name="CRDSHUCD" id="">
+                        <!-- 加空格,从数据库中取出来的 -->
+                        <option th:selected="${APP.CRDSHUCD} eq 'J '" value="J">JCB个人卡</option>
+                        <option th:selected="${APP.CRDSHUCD} eq 'M '" value="M">Mastercard® 个人卡</option>
+                        <option th:selected="${APP.CRDSHUCD} eq 'V '" value="V">VISA个人卡</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-6 bg-lemonchiffon"> </div>
+        </div>
+
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">家族申请的卡</li>
+                    <li class="list-inline-item"><img class="card-img card-img-top" src="images/icon_required.gif" alt="必須"></li>
+                </ul>
+                </P>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <div class="form-group">
+                    <select class="form-control" name="KZKKBN" id="">
+                        <option th:selected="${APP.KZKKBN} eq 'J'" value="J">JCB法人卡</option>
+                        <option th:selected="${APP.KZKKBN} eq 'M'" value="M">Mastercard® 法人卡</option>
+                        <option th:selected="${APP.KZKKBN} eq 'V'" value="V">VISA法人卡</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-6 bg-lemonchiffon"> </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row card-header">注册信息</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">电子邮件</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <label th:text="${APP.MAIL}">yamata.taro@h.co.jp</label>
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">生年月日</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <label th:text="${APP.BER}">1980-12-31</label>
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">携帯電話</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <label th:text="${APP.PHO}">080-1234-5678</label>
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+    </div>
+    <hr>
+    <div class="row card-header">ご本人について</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">顧客ID</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <label th:text="${APP.CSTID}">8888888888</label>
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">個人・法人</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <label th:text="${APP.KJNHJN}">個人</label>
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">お名前</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-1 bg-lemonchiffon">
+                <p>姓<br>
+                    <br>
+                    <br>
+                    名</p>
+            </div>
+            <div class="col-3 bg-lemonchiffon">
+                <label th:text="${APP.SEIKJ}">山田</label>
+                <hr>
+                <label th:text="${APP.MEIKJ}">太郎</label>
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">お名前<br>
+                        フリガナ</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-1 bg-lemonchiffon">
+                <p>姓<br>
+                    <br>
+                    <br>
+                    名</p>
+            </div>
+            <div class="col-3 bg-lemonchiffon">
+                <label th:text="${APP.SEIKN}">ヤマダ</label>
+                <hr>
+                <label th:text="${APP.MEIKN}">タロウ</label>
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">ローマ字名</li>
+                    <li class="list-inline-item"></li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-1">
+                <p>姓<br>
+                    <br>
+                    <br>
+                    名</p>
+            </div>
+            <div class="col-3">
+                <label th:text="${APP.SEIEN}">YAMATA</label>
+                <hr>
+                <label th:text="${APP.MEIEN}">TAROU</label>
+            </div>
+            <div class="col-6"> </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">性別</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <P th:text="${APP.SEX}eq 'F'?'男性':'女性'">男性</P>
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+    </div>
+    <hr>
+    <div class="row card-header">お支払口座について</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">金融机构名称</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-5 bg-lemonchiffon">
+                <label th:text="${APP.BANKCD}">三菱ＵＦＪ銀行</label>
+            </div>
+            <div class="col-5 bg-lemonchiffon"> </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+ <!-- --------------------------------------------------------------------- -->
+                    <li class="list-inline-item">分行和办事处代码</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-3 bg-lemonchiffon">
+                <label th:text="${APP.BCHCD}">001</label>
+            </div>
+            <div class="col-5 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">預金種別</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-5 bg-lemonchiffon">
+                <label th:text="${APP.YKN}">普通預金</label>
+            </div>
+            <div class="col-5 bg-lemonchiffon"> </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">帐号</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-5 bg-lemonchiffon">
+                <label th:text="${APP.ACTCD}">1234567</label>
+            </div>
+            <div class="col-5 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">户头</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-5 bg-lemonchiffon">
+                <label th:text="${APP.ACTNAE}">ヤマダ タロウ</label>
+            </div>
+            <div class="col-5 bg-lemonchiffon"> </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row card-header">卡片信息</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">本人卡号</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <div class="form-group">
+                    <label th:text="${APP.OLDCRDCD}">****-****-****-1234</label>
+                </div>
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">卡有效期</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <div class="form-group">
+                    <label class="date" th:text="${APP.DELETEDTE}">Thu Dec 19 12:12:12 GMT+08:00 2024</label>
+                </div>
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">购物额度分类</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <div class="form-group">
+                    <label th:text="${APP.SPGTORKBN}">１００万</label>
+                </div>
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">现金预支额度分类</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <div class="form-group">
+                    <label th:text="${APP.CSGKBN}">１０万</label>
+                </div>
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">家庭卡号</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <div class="form-group">
+                    <label  th:text="${APP.OLDCRDCD}">****-****-****-1166</label>
+                </div>
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">卡有效期</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <div class="form-group">
+                    <label class="date" th:text="${APP.DELETEDTE}">Thu Dec 19 12:12:12 GMT+08:00 2024</label>
+                </div>
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+    </div>
+    <hr>
+    <div class="row card-header">地址信息登记</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">住居種別</li>
+                </ul>
+                </P>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <div class="form-group">
+                    <select disabled class="form-control" name="JKYSBT" id="">
+                            <option th:selected="${APP.JKYSBT} eq 'A'" value="A">本人持家</option>
+                            <option th:selected="${APP.JKYSBT} eq 'B'" value="B">家族持家</option>
+                            <option th:selected="${APP.JKYSBT} eq 'C'" value="C">借家・賃貸マンション</option>
+                            <option th:selected="${APP.JKYSBT} eq 'D'" value="D">その他</option>
+                        </select>
+                </div>
+            </div>
+            <div class="col-6 bg-lemonchiffon"> </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">電話番号</li>
+                </ul>
+                </P>
+            </div>
+            <div class="col-4">
+                <label th:text="${APP.TEL}">03-0000-1111</label>
+            </div>
+            <div class="col-6"> </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">邮政编码</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <label th:text="${APP.POST}">101-0001</label>
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">都、道、府、县</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <div class="form-group">
+                    <label th:text="${APP.JSKJ1}">北海道</label>
+                </div>
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">住所</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-2 bg-lemonchiffon">
+                <label>市・区・町・村</label>
+                <hr>
+                <label>建物・部屋番号</label>
+            </div>
+            <div class="col-8 bg-lemonchiffon">
+                <label th:text="${APP.JSKJ1}">東京都品川区西品川１－１－１</label>
+                <hr>
+                <label th:text="${APP.JSKJ2}">品川ビル　１０１室</label>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">住所フリガナ</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-2 bg-lemonchiffon">
+                <label>市・区・町・村</label>
+                <hr>
+                <label>建物・部屋番号</label>
+            </div>
+            <div class="col-8 bg-lemonchiffon">
+                <label th:text="${APP.JSKN1}">トウキョウトシナガワくニシシナガワ１－１－１</label>
+                <hr>
+                <label th:text="${APP.JSKN2}">シナガワビル　１０１シツ</label>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row card-header">个人信息注册</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">驾驶执照</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-6">
+                <label th:text="${APP.DRIVERID}">123456789012</label>
+            </div>
+            <div class="col-6"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">健康保険証番号</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-5">
+                <label th:text="${APP.KKHCD}">1234567890</label>
+            </div>
+            <div class="col-5"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">希望能收到驾驶证家庭卡指南邮件</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-5">
+                <label th:text="${APP.KZKMLFLG}eq 'Y'?'有':'无'">有</label>
+            </div>
+            <div class="col-5"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">是否希望收到家庭卡信息电子邮件</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-5">
+                <label th:text="${APP.KZKMLFLG}eq 'Y'?'有':'无'">有</label>
+            </div>
+            <div class="col-5"></div>
+        </div>
+    </div>
+    <hr>
+    <div class="row card-header">关于工作单位</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">行业</li>
+                </ul>
+                </P>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <lable  th:text="${APP.GYOCD}">
+                製造
+                </label>
+            </div>
+            <div class="col-6 bg-lemonchiffon"> </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">工作单位名称</li>
+                </ul>
+                </P>
+            </div>
+            <div class="col-4">
+                <label th:text="${APP.KMS}">株式会社　H</label>
+            </div>
+            <div class="col-6"> </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">工作单位部门名称</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4">
+                <label th:text="${APP.KMSDEP}">第一事業部</label>
+            </div>
+            <div class="col-6"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">工作电话</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4">
+                <label th:text="${APP.KMSTEL}">03-1111-2222</label>
+            </div>
+            <div class="col-6"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">入社年月</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-2">
+                <label th:text="${APP.NSHYM}">201810</label>
+            </div>
+            <div class="col-8"> </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">年収額</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-3">
+                <ul class="list-inline">
+                    <label th:text="${APP.NSG}">320</label>
+                    </li>
+                    <li class="list-inline-item">万円</li>
+                </ul>
+            </div>
+            <div class="col-7"> </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row card-header">关于您的家人</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">家人的名字</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-1 bg-lemonchiffon">
+                <label>姓</label>
+                <hr>
+                <label>名</label>
+            </div>
+            <div class="col-9 bg-lemonchiffon">
+                <label th:text="${APP.KZKSEIKJ}">山田</label>
+                <hr>
+                <label th:text="${APP.KZKMEIKJ}">祐希</label>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">家族お名前<br>
+                        フリガナ</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-1 bg-lemonchiffon">
+                <label>姓</label>
+                <hr>
+                <label>名</label>
+            </div>
+            <div class="col-3 bg-lemonchiffon">
+                <label th:text="${APP.KZKSEIKN}">ヤマダ</label>
+                <hr>
+                <label th:text="${APP.KZKMEIKN}">ユウキ</label>
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">ローマ字名</li>
+                    <li class="list-inline-item"></li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-1">
+                <label>姓</label>
+                <hr>
+                <label>名</label>
+            </div>
+            <div class="col-3">
+                <label th:text="${APP.KZKSEIEN}">YAMADA</label>
+                <hr>
+                <label th:text="${APP.KZKMEIEN}">YUUKI</label>
+            </div>
+            <div class="col-6"> </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">性別</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <label th:text="${APP.KZKMEIEN}">女性</label>
+            </div>
+            <div class="col-6 bg-lemonchiffon"></div>
+        </div>
+    </div>
+    <hr>
+    <div class="row card-header">关于家庭工作单位</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">業種</li>
+                </ul>
+                </P>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <div class="form-group">
+                    <label th:text="${APP.KZKGYOCD}">製造</label>
+                </div>
+            </div>
+            <div class="col-6 bg-lemonchiffon"> </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">勤務先名</li>
+                </ul>
+                </P>
+            </div>
+            <div class="col-4">
+                <label th:text="${APP.KZKKMS}">株式会社　H</label>
+            </div>
+            <div class="col-6"> </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">勤務先部課名</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4">
+                <label th:text="${APP.KZKKMSDEP}">第一事業部</label>
+            </div>
+            <div class="col-6"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">勤務先電話</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4">
+                <label th:text="${APP.KZKKMSTEL}">03-1111-2222</label>
+            </div>
+            <div class="col-6"></div>
+        </div>
+    </div>
+    <div class="text-center">
+        <div class="custom-control custom-radio custom-control-inline">
+            <p class="lead"> <a id="BackMemberIndex" class="btn btn-danger btn-lg" th:href="@{MemberIndex?ID={CSTID}(CSTID=${APP.CSTID})}" role="button">返回</a> </p>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <p class="lead">  
+                <button class="btn btn-danger btn-lg">变更申请</button>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-center col-lg-6 offset-lg-3">
+            <p>Copyright &copy; H &middot; All Rights Reserved &middot;</p>
+        </div>
+    </div>
+    </form>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery-3.2.1.min.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/popper.min.js"></script> 
+<script src="js/bootstrap-4.0.0.js"></script>
+<script type='text/javascript'>
+  
+    function p(s) {
+      return s < 10 ? '0' + s : s
+    }
+    function formatTime (d) {
+        const resDate = d.getFullYear() + '-' + p((d.getMonth() + 1)) + '-' + p(d.getDate())
+        const resTime = p(d.getHours()) + ':' + p(d.getMinutes()) + ':' + p(d.getSeconds())
+
+        return resDate+" "+resTime
+    }
+    
+    
+    //var timer =setTimeout(function(){
+        var datesObj = document.getElementsByClassName("date")
+        var dates=[]
+        var n = datesObj.length
+        var i
+        for(i=0;i<n;i++){
+            dates[i] = datesObj[i].textContent
+            var d = new Date(dates[i]); 
+            d = formatTime(d)
+            console.log(d)
+            datesObj[i].innerHTML = d
+        }
+   // },3000);
+
+    // BackMemberIndex
+      var ADMINID = document.getElementById("ADMINID")  
+      var BackMemberIndex = document.getElementById("BackMemberIndex");
+      BackMemberIndex.onclick = function (){
+         if(ADMINID.value != false){
+            BackMemberIndex.href="MemberIndex?ID=11111111111111"
+         }
+      }
+     
+</script>
+</body>
+</html>

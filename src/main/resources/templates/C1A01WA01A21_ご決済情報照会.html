@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>株式会社　H　カード</title>
+<!-- Bootstrap -->
+<link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"><a class="navbar-brand" href="#">カードサイト</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse" >
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"> <a class="nav-link" href="#">お手続き <span class="sr-only"></span></a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#">お問い合わせ</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#">山田　さま</a> </li>
+        </ul>
+    </div>
+</nav>
+<hr>
+<div class="alert-danger text-center">
+    <P class="card-text">ご決済情報照会</p>
+</div>
+<div class="container">
+    <div class="row text-center"> </div>
+    <hr>
+    <div class="row card-header">カード情報</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-3 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">本人カード番号</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <div class="form-group">
+                    <label th:text="${crd.CRDCD}"></label>
+                    <!--<label>****-****-****-1234</label>-->
+                </div>
+            </div>
+            <div class="col-5 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-3 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">家族カード番号</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <div class="form-group">
+                    <label th:text="${crd.CRDYKK}"></label>
+                    <!--<label>****-****-****-9345</label>-->
+                </div>
+            </div>
+            <div class="col-5 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-3 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">ショッピングご利用可能額</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <div class="form-group">
+                    <label th:text="${crd.SPGTORKBN}+'円'"></label>
+                    <!--<label>875,000円</label>-->
+                </div>
+            </div>
+            <div class="col-5 bg-lemonchiffon"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-3 bg-aqua">
+                <p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">キャッシングご利用可能額</li>
+                </ul>
+                </p>
+            </div>
+            <div class="col-4 bg-lemonchiffon">
+                <div class="form-group">
+                    <label th:text="${crd.CSGKBN}+'円'"></label>
+                    <!--<label>100,000円</label>-->
+                </div>
+            </div>
+            <div class="col-5 bg-lemonchiffon"></div>
+        </div>
+        <br>
+
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery-3.2.1.min.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/popper.min.js"></script> 
+<script src="js/bootstrap-4.0.0.js"></script>
+</body>
+</html>

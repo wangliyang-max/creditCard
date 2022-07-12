@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- com.dao.UserDao对应Dao接口 -->
+<mapper namespace="com.example.dao.CusDao">
+	<!-- 查询用户信息 -->
+	<select id="selectCus"  resultType="com.example.po.MyCST" >
+	    select * from customer
+		<!-- select to_char(INSERTDTE,'yyyy-mm-dd') from CUSTOMER t -->
+	</select>
+	
+	
+	<select id="selectCusByCusid" parameterType="java.lang.String" resultType="com.example.po.MyCST" >
+		select * from customer where CSTID = #{CSTID}
+	</select>
+	
+    <insert id = "insertCus" parameterType = "com.example.po.MyCST">
+		insert into customer values(
+		#{CSTID},#{HNNKZK},
+		#{SEI},#{SEIKANA},#{SEIEN},
+		#{MEI},#{MEIKANAK},#{MEIEN},
+		#{BTH},#{SEX},#{KJNHJN},#{TEL},
+		#{PHONE},#{JKYSBT},#{POST},#{KNC},#{JSKJ1},#{JSKJ2},#{JSKN1},#{JSKN2},
+     
+        #{GYOCD},#{KMS},#{KMSDEP},#{KMSTEL},#{KMSJS1},#{KMSJS2},
+    
+        #{NYUSYAYM},#{NSG},#{DRIVERID},#{KKHCD},#{BANKCD},#{BCHCD},#{YKN}, 
+    
+        #{ACTCD},#{ACTNAE},#{KZKMLFLG},#{CAMMLFLG},#{ETCFLG}, 
+    
+        to_date(#{INSERTDTE},'YYYY-MM-DD'),
+        #{INSERTID},
+        to_date(#{UPDATEDTE},'YYYY-MM-DD'),
+        #{UPDATEID},
+        #{DELETEFLG},
+        to_date(#{DELETEDTE},'YYYY-MM-DD') 
+       
+        
+		)
+	</insert>
+	<update id = "updateCus" parameterType = "com.example.po.MyCST">
+		update customer set SEI = #{SEI} where CSTID = #{CSTID}
+	</update>
+	<delete  id = "deleteCus" parameterType = "java.lang.String">
+		delete from customer where CSTID = #{CSTID}
+	</delete>
+	
+	
+	
+</mapper>

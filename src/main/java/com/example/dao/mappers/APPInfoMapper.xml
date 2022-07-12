@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- com.dao.UserDao对应Dao接口 -->
+<mapper namespace="com.example.dao.APPInfoDao">
+	<select id="searchAPP" parameterType="java.lang.String" resultType="com.example.po.MyAPP">
+		select * from APP where CSTID = #{id}
+	</select>
+	<select id="searchETC" parameterType="java.lang.String" resultType="java.lang.String">
+		select ETCFLG from CST where CSTID = #{id}
+	</select>
+	
+	<update id="changeAPP" parameterType="com.example.po.MyAPP">
+		update APP set 
+		PHO = #{PHO},
+		SEIKJ=#{SEIKJ},
+		MEIKJ=#{MEIKJ},
+		SEIKN=#{SEIKN},
+		MEIKN=#{MEIKN},
+		SEIEN=#{SEIEN},
+		MEIEN=#{MEIEN},
+		JKYSBT=#{JKYSBT},
+		TEL=#{TEL},
+		POST=#{POST},	
+		JSKJ1=#{JSKJ1},
+		JSKJ2=#{JSKJ2},
+		JSKN1=#{JSKN1},
+		JSKN2=#{JSKN2},
+		DRIVERID=#{DRIVERID},
+		KKHCD=#{KKHCD},
+		HGSUMK=#{HGSUMK},
+		KZKMLFLG=#{KZKMLFLG},
+		CAMMLFLG=#{CAMMLFLG},
+		HNNHHUCD=#{HNNHHUCD},
+		HNNFLG=#{HNNFLG},
+		KZKFLG=#{KZKFLG},
+		GYOCD=#{GYOCD},
+		KMS=#{KMS},
+		KMSDEP=#{KMSDEP},
+		KMSTEL=#{KMSTEL},
+		KMSJS1=#{KMSJS1},
+		KMSJS2=#{KMSJS2},
+		NSHYM=#{NSHYM},
+		NSG=#{NSG},
+		KZKSEIKJ=#{KZKSEIKJ},
+		KZKMEIKJ=#{KZKMEIKJ},
+		KZKSEIKN=#{KZKSEIKN},
+		KZKMEIKN=#{KZKMEIKN},
+		KZKSEIEN=#{KZKSEIEN},
+		KZKMEIEN=#{KZKMEIEN},
+		KZKSEX=#{KZKSEX},
+		KZKGYOCD=#{KZKGYOCD},
+		KZKKMS=#{KZKKMS},
+		KZKKMSDEP=#{KZKKMSDEP},
+		KZKKMSTEL=#{KZKKMSTEL} 
+		where CSTID = #{CSTID}
+	</update>
+</mapper>

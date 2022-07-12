@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- com.example.dao.PNTINFDao对应Dao接口 -->
+<mapper namespace="com.example.dao.PNTINFDao">
+    
+    <select id="selectPNTINF" parameterType="com.example.po.PNTINF" resultType="com.example.po.PNTINF" >
+		select * from PNTINF where CSTID = #{CSTID}
+	</select>
+	
+	<!-- 积分奖励信息插入 -->
+	<insert id="insertPNTINF" parameterType="com.example.po.PNTINF">
+	    insert into PNTINF values(#{PNTINFID},#{CSTID},#{HNNKZK},#{URSEQ},sysdate,#{RKSTS},#{PNTCOU},1,#{CAMPID},to_date(#{INSERTDTE},'yyyy-mm-dd'),#{INSERTID},to_date(#{UPDATEDTE},'yyyy-mm-dd'),#{UPDATEID},#{DELETEFLG},to_date(#{DELETEDTE},'yyyy-mm-dd'))
+	</insert>
+	
+</mapper>

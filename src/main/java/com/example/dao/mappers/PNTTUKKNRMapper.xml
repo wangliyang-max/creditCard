@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- com.dao.UserDao对应Dao接口 -->
+<mapper namespace="com.example.dao.PNTTUKKNRDao">
+	
+	<!-- 积分合计管理信息插入 -->
+	<insert id="insertPNTTUKKNR" parameterType="com.example.po.PNTTUKKNR">
+	    insert into PNTTUKKNR values(#{CSTID},sysdate,20220614,#{PNTCOU},to_date(#{INSERTDTE},'yyyy-mm-dd'),#{INSERTID},to_date(#{UPDATEDTE},'yyyy-mm-dd'),#{UPDATEID},#{DELETEFLG},to_date(#{DELETEDTE},'yyyy-mm-dd'))
+	</insert>
+	
+	<select id="selectPNTTUKKNR" parameterType="com.example.po.PNTTUKKNR" resultType="com.example.po.PNTTUKKNR" >
+		select * from PNTTUKKNR where CSTID = #{CSTID}
+	</select>
+	
+</mapper>

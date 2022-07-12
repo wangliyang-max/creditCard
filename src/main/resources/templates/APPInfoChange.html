@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="css/bootstrap-4.0.0.css" rel="stylesheet" />
+    <style>
+      .container {
+        height: 600px;
+        display: flex;
+        align-items: center;
+        /* 水平居中 */
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      h4 {
+        width: 100%;
+      }
+      .btn {
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container text-center">
+      <form action="APPInfo.change.search.application" type="post">
+        <input th:value="${ADMINID}" name="ADMINID" style="display:none"></input>
+        <h4 th:text="${msg}" style="color: brown"></h4>
+        <h4>请输入顾客id：</h4>
+        <input type="text" name="CSTID" id="" />
+        <br />
+        <button type="submit" class="btn btn-primary btn-lg">进行修改</button>
+      </form>
+    </div>
+  </body>
+</html>
